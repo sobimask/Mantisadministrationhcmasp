@@ -4,12 +4,12 @@ from selenium import webdriver
 import datetime
 from lib.randomphone import randomphone
 #教务登录环境
-# administration_url="https://yzhgqa.bjmantis.net"
-# administration_url="https://hcmsp.bjmantis.net"
+# administration_url="**"
+# administration_url="**"
 
-# administration_url="http://yzhgqa.bjmantis.net"
-administration_url="https://tuosi03.n8.bjmantis.cn"
-fuge="http://cshj3140.n4.bjmantis.cn"
+# administration_url="**"
+administration_url="**n"
+fuge="**"
 
 
 #获取明日时间
