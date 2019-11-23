@@ -17,6 +17,7 @@ class test_a1_tercherinclass(unittest.TestCase):
         # 用户登录
         electronic_login(self)
 
+
     def test_a1_tercherinclass(self):
         # # 新增课程名称
         # curriculum_name = product_manage['curriculum_name']
