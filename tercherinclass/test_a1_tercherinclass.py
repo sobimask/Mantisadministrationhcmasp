@@ -3,6 +3,7 @@ from lib.login import electronic_login
 import datetime
 import time
 import unittest
+from selenium import webdriver
 
 startday =(datetime.datetime.now()).strftime("%Y-%m-%d")
 starthour  =(datetime.datetime.now()+datetime.timedelta(hours=0.5)).strftime("%H:%M")
@@ -11,10 +12,10 @@ endhour = (datetime.datetime.now()+datetime.timedelta(hours=2.5)).strftime("%H:%
 class test_a1_tercherinclass(unittest.TestCase):
 
     def setUp(self) -> None:
-        self.driver = my_driver
+        self.driver = webdriver.Chrome()
         self.driver.implicitly_wait(30)
+        # 用户登录
         electronic_login(self)
-        time.sleep(2)
 
     def test_a1_tercherinclass(self):
         # # 新增课程名称
