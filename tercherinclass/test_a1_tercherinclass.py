@@ -257,7 +257,7 @@ class test_a1_tercherinclass(unittest.TestCase):
         driver.find_element_by_link_text('启动云直播').click()
         time.sleep(1)
         #弹窗确认
-        driver.switch_to_alert().accept()
+        driver.switch_to.alert().accept()
 
 
 
