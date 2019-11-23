@@ -1,0 +1,556 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>test result</title>
+    <meta name="generator" content="HTMLTestRunner 0.8.2.3"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link href="http://libs.baidu.com/bootstrap/3.0.3/css/bootstrap.min.css" rel="stylesheet">
+    <script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+    <script src="http://libs.baidu.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
+    
+<style type="text/css" media="screen">
+body        { font-family: Microsoft YaHei,Tahoma,arial,helvetica,sans-serif;padding: 20px; font-size: 80%; }
+table       { font-size: 100%; }
+
+/* -- heading ---------------------------------------------------------------------- */
+.heading {
+    margin-top: 0ex;
+    margin-bottom: 1ex;
+}
+
+.heading .description {
+    margin-top: 4ex;
+    margin-bottom: 6ex;
+}
+
+/* -- report ------------------------------------------------------------------------ */
+#total_row  { font-weight: bold; }
+.passCase   { color: #5cb85c; }
+.failCase   { color: #d9534f; font-weight: bold; }
+.errorCase  { color: #f0ad4e; font-weight: bold; }
+.hiddenRow  { display: none; }
+.testcase   { margin-left: 2em; }
+</style>
+
+</head>
+<body >
+<script language="javascript" type="text/javascript">
+output_list = Array();
+
+/*level 调整增加只显示通过用例的分类 --Adil
+0:Summary //all hiddenRow
+1:Failed  //pt hiddenRow, ft none
+2:Pass    //pt none, ft hiddenRow
+3:Error   // pt hiddenRow, ft none
+4:All     //pt none, ft none
+下面设置 按钮展开逻辑  --Yang Yao Jun
+*/
+function showCase(level) {
+    trs = document.getElementsByTagName("tr");
+    for (var i = 0; i < trs.length; i++) {
+        tr = trs[i];
+        id = tr.id;
+        if (id.substr(0,2) == 'ft') {
+            if (level == 2 || level == 0 ) {
+                tr.className = 'hiddenRow';
+            }
+            else {
+                tr.className = '';
+            }
+        }
+        if (id.substr(0,2) == 'pt') {
+            if (level < 2 || level ==3 ) {
+                tr.className = 'hiddenRow';
+            }
+            else {
+                tr.className = '';
+            }
+        }
+    }
+
+    //加入【详细】切换文字变化 --Findyou
+    detail_class=document.getElementsByClassName('detail');
+    //console.log(detail_class.length)
+    if (level == 3) {
+        for (var i = 0; i < detail_class.length; i++){
+            detail_class[i].innerHTML="收起"
+        }
+    }
+    else{
+            for (var i = 0; i < detail_class.length; i++){
+            detail_class[i].innerHTML="详细"
+        }
+    }
+}
+
+function showClassDetail(cid, count) {
+    var id_list = Array(count);
+    var toHide = 1;
+    for (var i = 0; i < count; i++) {
+        //ID修改 点 为 下划线 -Findyou
+        tid0 = 't' + cid.substr(1) + '_' + (i+1);
+        tid = 'f' + tid0;
+        tr = document.getElementById(tid);
+        if (!tr) {
+            tid = 'p' + tid0;
+            tr = document.getElementById(tid);
+        }
+        id_list[i] = tid;
+        if (tr.className) {
+            toHide = 0;
+        }
+    }
+    for (var i = 0; i < count; i++) {
+        tid = id_list[i];
+        //修改点击无法收起的BUG，加入【详细】切换文字变化 --Findyou
+        if (toHide) {
+            document.getElementById(tid).className = 'hiddenRow';
+            document.getElementById(cid).innerText = "详细"
+        }
+        else {
+            document.getElementById(tid).className = '';
+            document.getElementById(cid).innerText = "收起"
+        }
+    }
+}
+
+function html_escape(s) {
+    s = s.replace(/&/g,'&');
+    s = s.replace(/</g,'<');
+    s = s.replace(/>/g,'>');
+    return s;
+}
+</script>
+<div class='heading'>
+<h1 style="font-family: Microsoft YaHei">test result</h1>
+<p class='attribute'><strong>测试人员 : </strong> QIzhaojun</p>
+<p class='attribute'><strong>开始时间 : </strong> 2019-11-23 02:13:20</p>
+<p class='attribute'><strong>合计耗时 : </strong> 0:09:44.144535</p>
+<p class='attribute'><strong>测试结果 : </strong> 共 12，通过 7，失败 2，错误 3，通过率= 58.33%</p>
+
+<p class='description'>the status of test case execution</p>
+</div>
+
+
+
+    <p id='show_detail_line'>
+    <a class="btn btn-primary" href='javascript:showCase(0)'>通过率 [58.33% ]</a>
+    <a class="btn btn-success" href='javascript:showCase(2)'>通过[ 7 ]</a>
+    <a class="btn btn-warning" href='javascript:showCase(3)'>错误[ 3 ]</a>
+    <a class="btn btn-danger" href='javascript:showCase(1)'>失败[ 2 ]</a>
+    <a class="btn btn-info" href='javascript:showCase(4)'>所有[ 12 ]</a>
+    </p>
+<table id='result_table' class="table table-condensed table-bordered table-hover">
+<colgroup>
+<col align='left' />
+<col align='right' />
+<col align='right' />
+<col align='right' />
+<col align='right' />
+<col align='right' />
+</colgroup>
+<tr id='header_row' class="text-center success" style="font-weight: bold;font-size: 14px;">
+    <td>用例集/测试用例</td>
+    <td>总计</td>
+    <td>通过</td>
+    <td>错误</td>
+    <td>失败</td>
+    <td>详细</td>
+</tr>
+
+<tr class='errorClass warning'>
+    <td>test_a1_project1_add.test_a_project1_add</td>
+    <td class="text-center">1</td>
+    <td class="text-center">0</td>
+    <td class="text-center">1</td>
+    <td class="text-center">0</td>
+    <td class="text-center"><a href="javascript:showClassDetail('c1',1)" class="detail" id='c1'>详细</a></td>
+</tr>
+
+<tr id='ft1_1' class='none'>
+    <td class='errorCase'><div class='testcase'>test_a_project1_add: 基础配置-项目配置-一级项目-二级项目</div></td>
+    <td colspan='5' align='center'>
+    <!--默认收起错误信息 -Findyou
+    <button id='btn_ft1_1' type="button"  class="btn btn-danger btn-xs collapsed" data-toggle="collapse" data-target='#div_ft1_1'>错误</button>
+    <div id='div_ft1_1' class="collapse">  -->
+
+    <!-- 默认展开错误信息 -Findyou -->
+    <button id='btn_ft1_1' type="button"  class="btn btn-danger btn-xs" data-toggle="collapse" data-target='#div_ft1_1'>错误</button>
+    <div id='div_ft1_1' class="collapse in" style='text-align: left; color:red;cursor:pointer'>
+    <pre>
+    
+ft1_1: Traceback (most recent call last):
+  File "D:\Mantisadministrationhcmasp\test_Configuration\test_a1_project1_add.py", line 43, in test_a_project1_add
+    driver.find_element_by_link_text('二级项目').click()
+  File "C:\Users\SobiM\AppData\Local\Programs\Python\Python37\lib\site-packages\selenium\webdriver\remote\webelement.py", line 80, in click
+    self._execute(Command.CLICK_ELEMENT)
+  File "C:\Users\SobiM\AppData\Local\Programs\Python\Python37\lib\site-packages\selenium\webdriver\remote\webelement.py", line 633, in _execute
+    return self._parent.execute(command, params)
+  File "C:\Users\SobiM\AppData\Local\Programs\Python\Python37\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 321, in execute
+    self.error_handler.check_response(response)
+  File "C:\Users\SobiM\AppData\Local\Programs\Python\Python37\lib\site-packages\selenium\webdriver\remote\errorhandler.py", line 242, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.ElementClickInterceptedException: Message: element click intercepted: Element &lt;a href="/mantis/base/product/second"&gt;...&lt;/a&gt; is not clickable at point (378, 81). Other element would receive the click: &lt;div tabindex="-1" class="ant-modal-wrap " role="dialog" aria-labelledby="rcDialogTitle0"&gt;...&lt;/div&gt;
+  (Session info: chrome=78.0.3904.108)
+
+
+
+    </pre>
+    </div>
+    </td>
+</tr>
+
+<tr class='passClass warning'>
+    <td>test_a2_exam_date.test_a_exam_date</td>
+    <td class="text-center">1</td>
+    <td class="text-center">1</td>
+    <td class="text-center">0</td>
+    <td class="text-center">0</td>
+    <td class="text-center"><a href="javascript:showClassDetail('c2',1)" class="detail" id='c2'>详细</a></td>
+</tr>
+
+<tr id='pt2_1' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>test_a_exam_date: 基础配置—考期配置-新增考期</div></td>
+    <td colspan='5' align='center'><span class="label label-success success">通过</span></td>
+</tr>
+
+<tr class='failClass warning'>
+    <td>test_a2_exam_date_modify.test_a2_exam_date_modify</td>
+    <td class="text-center">1</td>
+    <td class="text-center">0</td>
+    <td class="text-center">0</td>
+    <td class="text-center">1</td>
+    <td class="text-center"><a href="javascript:showClassDetail('c3',1)" class="detail" id='c3'>详细</a></td>
+</tr>
+
+<tr id='ft3_1' class='none'>
+    <td class='failCase'><div class='testcase'>test_a2_exam_date_modify: 基础配置—考期配置-修改考期</div></td>
+    <td colspan='5' align='center'>
+    <!--默认收起错误信息 -Findyou
+    <button id='btn_ft3_1' type="button"  class="btn btn-danger btn-xs collapsed" data-toggle="collapse" data-target='#div_ft3_1'>失败</button>
+    <div id='div_ft3_1' class="collapse">  -->
+
+    <!-- 默认展开错误信息 -Findyou -->
+    <button id='btn_ft3_1' type="button"  class="btn btn-danger btn-xs" data-toggle="collapse" data-target='#div_ft3_1'>失败</button>
+    <div id='div_ft3_1' class="collapse in" style='text-align: left; color:red;cursor:pointer'>
+    <pre>
+    
+ft3_1: 2019-04
+2019-04
+Traceback (most recent call last):
+  File "D:\Mantisadministrationhcmasp\test_Configuration\test_a2_exam_date_modify.py", line 60, in test_a2_exam_date_modify
+    self.assertNotEqual(new_date,old_date)
+AssertionError: '2019-04' == '2019-04'
+
+
+    </pre>
+    </div>
+    </td>
+</tr>
+
+<tr class='passClass warning'>
+    <td>test_a3_academy.test_a_academy</td>
+    <td class="text-center">1</td>
+    <td class="text-center">1</td>
+    <td class="text-center">0</td>
+    <td class="text-center">0</td>
+    <td class="text-center"><a href="javascript:showClassDetail('c4',1)" class="detail" id='c4'>详细</a></td>
+</tr>
+
+<tr id='pt4_1' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>test_a_academy: 基础配置-学院配置</div></td>
+    <td colspan='5' align='center'>
+    <!--默认收起错误信息 -Findyou
+    <button id='btn_pt4_1' type="button"  class="btn btn-danger btn-xs collapsed" data-toggle="collapse" data-target='#div_pt4_1'>通过</button>
+    <div id='div_pt4_1' class="collapse">  -->
+
+    <!-- 默认展开错误信息 -Findyou -->
+    <button id='btn_pt4_1' type="button"  class="btn btn-danger btn-xs" data-toggle="collapse" data-target='#div_pt4_1'>通过</button>
+    <div id='div_pt4_1' class="collapse in" style='text-align: left; color:red;cursor:pointer'>
+    <pre>
+    
+pt4_1: 黄雀学院6504
+黄雀学院分院6970
+
+
+    </pre>
+    </div>
+    </td>
+</tr>
+
+<tr class='errorClass warning'>
+    <td>test_a4_service_provider.test_a_service_provider</td>
+    <td class="text-center">1</td>
+    <td class="text-center">0</td>
+    <td class="text-center">1</td>
+    <td class="text-center">0</td>
+    <td class="text-center"><a href="javascript:showClassDetail('c5',1)" class="detail" id='c5'>详细</a></td>
+</tr>
+
+<tr id='ft5_1' class='none'>
+    <td class='errorCase'><div class='testcase'>test_a_service_provider: 基础配置-服务商配置</div></td>
+    <td colspan='5' align='center'>
+    <!--默认收起错误信息 -Findyou
+    <button id='btn_ft5_1' type="button"  class="btn btn-danger btn-xs collapsed" data-toggle="collapse" data-target='#div_ft5_1'>错误</button>
+    <div id='div_ft5_1' class="collapse">  -->
+
+    <!-- 默认展开错误信息 -Findyou -->
+    <button id='btn_ft5_1' type="button"  class="btn btn-danger btn-xs" data-toggle="collapse" data-target='#div_ft5_1'>错误</button>
+    <div id='div_ft5_1' class="collapse in" style='text-align: left; color:red;cursor:pointer'>
+    <pre>
+    
+ft5_1: Traceback (most recent call last):
+  File "D:\Mantisadministrationhcmasp\test_Configuration\test_a4_service_provider.py", line 41, in test_a_service_provider
+    driver.find_element_by_id('name').click()
+  File "C:\Users\SobiM\AppData\Local\Programs\Python\Python37\lib\site-packages\selenium\webdriver\remote\webelement.py", line 80, in click
+    self._execute(Command.CLICK_ELEMENT)
+  File "C:\Users\SobiM\AppData\Local\Programs\Python\Python37\lib\site-packages\selenium\webdriver\remote\webelement.py", line 633, in _execute
+    return self._parent.execute(command, params)
+  File "C:\Users\SobiM\AppData\Local\Programs\Python\Python37\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 321, in execute
+    self.error_handler.check_response(response)
+  File "C:\Users\SobiM\AppData\Local\Programs\Python\Python37\lib\site-packages\selenium\webdriver\remote\errorhandler.py", line 242, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.ElementClickInterceptedException: Message: element click intercepted: Element &lt;input placeholder="请输入服务商名称" autocomplete="off" type="text" id="name" data-__meta="[object Object]" data-__field="[object Object]" class="ant-input" value="" style="width: 220px;"&gt; is not clickable at point (725, 88). Other element would receive the click: &lt;div tabindex="-1" class="ant-modal-wrap " role="dialog" aria-labelledby="rcDialogTitle0"&gt;...&lt;/div&gt;
+  (Session info: chrome=78.0.3904.108)
+
+
+
+    </pre>
+    </div>
+    </td>
+</tr>
+
+<tr class='errorClass warning'>
+    <td>test_a5_campus.test_a_campus</td>
+    <td class="text-center">1</td>
+    <td class="text-center">0</td>
+    <td class="text-center">1</td>
+    <td class="text-center">0</td>
+    <td class="text-center"><a href="javascript:showClassDetail('c6',1)" class="detail" id='c6'>详细</a></td>
+</tr>
+
+<tr id='ft6_1' class='none'>
+    <td class='errorCase'><div class='testcase'>test_a_campus: 基础配置-校区配置</div></td>
+    <td colspan='5' align='center'>
+    <!--默认收起错误信息 -Findyou
+    <button id='btn_ft6_1' type="button"  class="btn btn-danger btn-xs collapsed" data-toggle="collapse" data-target='#div_ft6_1'>错误</button>
+    <div id='div_ft6_1' class="collapse">  -->
+
+    <!-- 默认展开错误信息 -Findyou -->
+    <button id='btn_ft6_1' type="button"  class="btn btn-danger btn-xs" data-toggle="collapse" data-target='#div_ft6_1'>错误</button>
+    <div id='div_ft6_1' class="collapse in" style='text-align: left; color:red;cursor:pointer'>
+    <pre>
+    
+ft6_1: 仓平校区9014
+Traceback (most recent call last):
+  File "D:\Mantisadministrationhcmasp\test_Configuration\test_a5_campus.py", line 70, in test_a_campus
+    masg=driver.find_element_by_xpath('//*[@id="hisroot"]/div/div/section/div/div/div/section/main/div/div/div/div/div/div/div/div/div/div[2]/div/table/tbody/tr/td[4]').text
+  File "C:\Users\SobiM\AppData\Local\Programs\Python\Python37\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 394, in find_element_by_xpath
+    return self.find_element(by=By.XPATH, value=xpath)
+  File "C:\Users\SobiM\AppData\Local\Programs\Python\Python37\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 978, in find_element
+    'value': value})['value']
+  File "C:\Users\SobiM\AppData\Local\Programs\Python\Python37\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 321, in execute
+    self.error_handler.check_response(response)
+  File "C:\Users\SobiM\AppData\Local\Programs\Python\Python37\lib\site-packages\selenium\webdriver\remote\errorhandler.py", line 242, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.NoSuchElementException: Message: no such element: Unable to locate element: {"method":"xpath","selector":"//*[@id="hisroot"]/div/div/section/div/div/div/section/main/div/div/div/div/div/div/div/div/div/div[2]/div/table/tbody/tr/td[4]"}
+  (Session info: chrome=78.0.3904.108)
+
+
+
+    </pre>
+    </div>
+    </td>
+</tr>
+
+<tr class='passClass warning'>
+    <td>test_a6_express_company.test_a_campus</td>
+    <td class="text-center">1</td>
+    <td class="text-center">1</td>
+    <td class="text-center">0</td>
+    <td class="text-center">0</td>
+    <td class="text-center"><a href="javascript:showClassDetail('c7',1)" class="detail" id='c7'>详细</a></td>
+</tr>
+
+<tr id='pt7_1' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>test_a_express_company: 快递公司-增加-修改-删除</div></td>
+    <td colspan='5' align='center'>
+    <!--默认收起错误信息 -Findyou
+    <button id='btn_pt7_1' type="button"  class="btn btn-danger btn-xs collapsed" data-toggle="collapse" data-target='#div_pt7_1'>通过</button>
+    <div id='div_pt7_1' class="collapse">  -->
+
+    <!-- 默认展开错误信息 -Findyou -->
+    <button id='btn_pt7_1' type="button"  class="btn btn-danger btn-xs" data-toggle="collapse" data-target='#div_pt7_1'>通过</button>
+    <div id='div_pt7_1' class="collapse in" style='text-align: left; color:red;cursor:pointer'>
+    <pre>
+    
+pt7_1: 急速快递
+急速快递,就是快
+暂无数据
+
+
+    </pre>
+    </div>
+    </td>
+</tr>
+
+<tr class='passClass warning'>
+    <td>test_a7_payment_collection_agencies.test_a_express_company</td>
+    <td class="text-center">1</td>
+    <td class="text-center">1</td>
+    <td class="text-center">0</td>
+    <td class="text-center">0</td>
+    <td class="text-center"><a href="javascript:showClassDetail('c8',1)" class="detail" id='c8'>详细</a></td>
+</tr>
+
+<tr id='pt8_1' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>test_a_express_company: 基础配置-支付配置-收款机构-增加-修改</div></td>
+    <td colspan='5' align='center'>
+    <!--默认收起错误信息 -Findyou
+    <button id='btn_pt8_1' type="button"  class="btn btn-danger btn-xs collapsed" data-toggle="collapse" data-target='#div_pt8_1'>通过</button>
+    <div id='div_pt8_1' class="collapse">  -->
+
+    <!-- 默认展开错误信息 -Findyou -->
+    <button id='btn_pt8_1' type="button"  class="btn btn-danger btn-xs" data-toggle="collapse" data-target='#div_pt8_1'>通过</button>
+    <div id='div_pt8_1' class="collapse in" style='text-align: left; color:red;cursor:pointer'>
+    <pre>
+    
+pt8_1: 花旗银行6359
+花旗银行1
+
+
+    </pre>
+    </div>
+    </td>
+</tr>
+
+<tr class='failClass warning'>
+    <td>test_a7_payment_cost_types.test_a_payment_cost_types</td>
+    <td class="text-center">1</td>
+    <td class="text-center">0</td>
+    <td class="text-center">0</td>
+    <td class="text-center">1</td>
+    <td class="text-center"><a href="javascript:showClassDetail('c9',1)" class="detail" id='c9'>详细</a></td>
+</tr>
+
+<tr id='ft9_1' class='none'>
+    <td class='failCase'><div class='testcase'>test_a_payment_cost_types: 基础配置-支付配置--费用类型-增加-修改</div></td>
+    <td colspan='5' align='center'>
+    <!--默认收起错误信息 -Findyou
+    <button id='btn_ft9_1' type="button"  class="btn btn-danger btn-xs collapsed" data-toggle="collapse" data-target='#div_ft9_1'>失败</button>
+    <div id='div_ft9_1' class="collapse">  -->
+
+    <!-- 默认展开错误信息 -Findyou -->
+    <button id='btn_ft9_1' type="button"  class="btn btn-danger btn-xs" data-toggle="collapse" data-target='#div_ft9_1'>失败</button>
+    <div id='div_ft9_1' class="collapse in" style='text-align: left; color:red;cursor:pointer'>
+    <pre>
+    
+ft9_1: mmmn5790
+是
+Traceback (most recent call last):
+  File "D:\Mantisadministrationhcmasp\test_Configuration\test_a7_payment_cost_types.py", line 65, in test_a_payment_cost_types
+    self.assertEqual(masg,'否')
+AssertionError: '是' != '否'
+- 是
++ 否
+
+
+
+    </pre>
+    </div>
+    </td>
+</tr>
+
+<tr class='passClass warning'>
+    <td>test_a7_payment_way.test_a_payment_way</td>
+    <td class="text-center">1</td>
+    <td class="text-center">1</td>
+    <td class="text-center">0</td>
+    <td class="text-center">0</td>
+    <td class="text-center"><a href="javascript:showClassDetail('c10',1)" class="detail" id='c10'>详细</a></td>
+</tr>
+
+<tr id='pt10_1' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>test_a_payment_way: 基础配置-支付配置--支付方式-增加-修改</div></td>
+    <td colspan='5' align='center'>
+    <!--默认收起错误信息 -Findyou
+    <button id='btn_pt10_1' type="button"  class="btn btn-danger btn-xs collapsed" data-toggle="collapse" data-target='#div_pt10_1'>通过</button>
+    <div id='div_pt10_1' class="collapse">  -->
+
+    <!-- 默认展开错误信息 -Findyou -->
+    <button id='btn_pt10_1' type="button"  class="btn btn-danger btn-xs" data-toggle="collapse" data-target='#div_pt10_1'>通过</button>
+    <div id='div_pt10_1' class="collapse in" style='text-align: left; color:red;cursor:pointer'>
+    <pre>
+    
+pt10_1: 校园卡6192
+5%
+
+
+    </pre>
+    </div>
+    </td>
+</tr>
+
+<tr class='passClass warning'>
+    <td>test_a8_work_order_type.test_a_work_order_type</td>
+    <td class="text-center">1</td>
+    <td class="text-center">1</td>
+    <td class="text-center">0</td>
+    <td class="text-center">0</td>
+    <td class="text-center"><a href="javascript:showClassDetail('c11',1)" class="detail" id='c11'>详细</a></td>
+</tr>
+
+<tr id='pt11_1' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>test_a_work_order_type: 基础配置-工单类型-增加-修改</div></td>
+    <td colspan='5' align='center'>
+    <!--默认收起错误信息 -Findyou
+    <button id='btn_pt11_1' type="button"  class="btn btn-danger btn-xs collapsed" data-toggle="collapse" data-target='#div_pt11_1'>通过</button>
+    <div id='div_pt11_1' class="collapse">  -->
+
+    <!-- 默认展开错误信息 -Findyou -->
+    <button id='btn_pt11_1' type="button"  class="btn btn-danger btn-xs" data-toggle="collapse" data-target='#div_pt11_1'>通过</button>
+    <div id='div_pt11_1' class="collapse in" style='text-align: left; color:red;cursor:pointer'>
+    <pre>
+    
+pt11_1: 售后服务1746
+修改备注信息
+
+
+    </pre>
+    </div>
+    </td>
+</tr>
+
+<tr class='passClass warning'>
+    <td>test_a9_network_school.test_a_network_school</td>
+    <td class="text-center">1</td>
+    <td class="text-center">1</td>
+    <td class="text-center">0</td>
+    <td class="text-center">0</td>
+    <td class="text-center"><a href="javascript:showClassDetail('c12',1)" class="detail" id='c12'>详细</a></td>
+</tr>
+
+<tr id='pt12_1' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>test_a_network_school: 基础配置-网校配置</div></td>
+    <td colspan='5' align='center'><span class="label label-success success">通过</span></td>
+</tr>
+
+<tr id='total_row' class="text-center active">
+    <td>总计</td>
+    <td>12</td>
+    <td>7</td>
+    <td>3</td>
+    <td>2</td>
+    <td>通过率：58.33%</td>
+</tr>
+</table>
+
+<div id='ending'> </div>
+    <div style=" position:fixed;right:50px; bottom:30px; width:20px; height:20px;cursor:pointer">
+    <a href="#"><span class="glyphicon glyphicon-eject" style = "font-size:30px;" aria-hidden="true">
+    </span></a></div>
+    
+
+</body>
+</html>
