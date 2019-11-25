@@ -23,7 +23,7 @@ class test_a_academy(unittest.TestCase):
         macademy_name=configuration['macademy_name']
         driver = self.driver
     #基础配置
-        driver.find_element_by_xpath('//*[@id="hisroot"]/div/div/section/aside/div/ul/li[12]/div[1]').click()
+        driver.find_element_by_xpath("//span[contains(.,'基础配置')]").click()
         time.sleep(1)
         driver.find_element_by_link_text('学院配置').click()
         time.sleep(2)

@@ -25,7 +25,7 @@ class test_a4_textbook(unittest.TestCase):
 
         driver = self.driver
     #产品管理
-        driver.find_element_by_xpath('//*[@id="hisroot"]/div/div/section/aside/div/ul/li[14]/div').click()
+        driver.find_element_by_xpath("//span[contains(.,'产品管理')]").click()
         time.sleep(1)
         driver.find_element_by_link_text('教材教辅').click()
         time.sleep(2)

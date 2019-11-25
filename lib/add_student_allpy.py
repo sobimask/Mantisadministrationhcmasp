@@ -50,7 +50,7 @@ def add_student_allpy(self,student_name,student_phone,student_class,assessment,p
     time.sleep(9)
 
 #学员中心
-    driver.find_element_by_xpath('//*[@id="hisroot"]/div/div/section/aside/div/ul/li[16]/a').click()
+    driver.find_element_by_link_text('学员中心').click()
     time.sleep(2)
     #查询
     driver.find_element_by_id('searchMess').clear()

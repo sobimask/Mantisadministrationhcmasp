@@ -4,6 +4,7 @@ from lib.login import electronic_login
 from selenium import webdriver
 import unittest
 import time
+import os
 
 
 class test_a2_exam_date_modify(unittest.TestCase):
@@ -19,11 +20,13 @@ class test_a2_exam_date_modify(unittest.TestCase):
 
 
         #一级项目名称
-        name1=configuration['name1']
+        f = open('D:\\Mantisadministrationhcmasp\\configFile\\name1.txt', 'r')
+        name1 = f.read()
+        f.close()
 
         driver = self.driver
     #基础配置
-        driver.find_element_by_xpath('//*[@id="hisroot"]/div/div/section/aside/div/ul/li[12]/div[1]').click()
+        driver.find_element_by_xpath("//span[contains(.,'基础配置')]").click()
         time.sleep(1)
         driver.find_element_by_link_text('考期配置').click()
         time.sleep(2)
@@ -63,6 +66,8 @@ class test_a2_exam_date_modify(unittest.TestCase):
 
 
     def tearDown(self):
+        os.remove('D:\\Mantisadministrationhcmasp\\configFile\\name1.txt')
+
         self.driver.quit()
 
 

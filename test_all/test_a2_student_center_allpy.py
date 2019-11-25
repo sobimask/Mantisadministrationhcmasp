@@ -18,17 +18,17 @@ class test_a_student_center_allpy(unittest.TestCase):
 
 #传入参数
         #新增学员电话号码
-        # f=open('D:\\Mantisadministrationhcmasp\\configFile\\student.txt', 'r')
-        # student_phone = f.read()
-        # f.close()
+        f=open('D:\\Mantisadministrationhcmasp\\configFile\\student.txt', 'r')
+        student_phone = f.read()
+        f.close()
 
         #应缴费用
         assessment=student_centre['assessment']
         #实缴费用
         paid=student_centre['paid']
-        student_phone = student_centre['student']
 
-        time.sleep(2)
+
+        # time.sleep(2)
         driver = self.driver
         time.sleep(1)
         # 学员中心
@@ -145,7 +145,7 @@ class test_a_student_center_allpy(unittest.TestCase):
         time.sleep(8)
         # 断言
         # xx学服中心
-        driver.find_element_by_xpath('//*[@id="hisroot"]/div/div/section/aside/div/ul/li[16]/div').click()
+        driver.find_element_by_xpath("//span[contains(.,'学服中心')]").click()
         time.sleep(1)
         driver.find_element_by_link_text('订单管理').click()
         time.sleep(1)
@@ -153,12 +153,15 @@ class test_a_student_center_allpy(unittest.TestCase):
         driver.find_element_by_id('customerInfo').click()
         driver.find_element_by_id('customerInfo').send_keys(student_phone)
         time.sleep(1)
+
+        #23早更改查询元素定位
         driver.find_element_by_xpath(
-            '//*[@id="hisroot"]/div/div/section/div/div/div/section/main/div/div/form/div/div[26]/button[1]').click()
+            '//*[@id="hisroot"]/div/div/section/div/div/div/section/main/div/div/form/div/div[21]/button[1]').click()
         time.sleep(2)
-        masg = driver.find_element_by_xpath('').text
+        driver.find_element_by_xpath('//*[@id="hisroot"]/div/div/section/div/div/div/section/main/div/div/div/div/div/div/div/div/div/div/div[2]/div/div/table/tbody/tr[1]/td/span[2]').click()
+        masg = driver.find_element_by_xpath('//*[@id="hisroot"]/div/div/section/div/div/div/section/main/div/div/div/div/div/div/div/div/div/div/div[1]/div/table/tbody/tr[1]/td[3]/span').text
         print(masg)
-        self.assertIsNotNone(masg, ' ')
+        self.assertIsNotNone(masg)
 
 
 

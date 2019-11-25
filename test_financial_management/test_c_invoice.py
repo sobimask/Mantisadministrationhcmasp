@@ -75,7 +75,7 @@ class test_c_invoice(unittest.TestCase):
         driver.find_element_by_xpath('/html/body/div[9]/div/div[2]/div/div[2]/div[3]/button[2]').click()
         time.sleep(2)
 #财务管理
-        driver.find_element_by_xpath('//*[@id="hisroot"]/div/div/section/aside/div/ul/li[20]/div[1]').click()
+        driver.find_element_by_xpath("//span[contains(.,'财务管理')]").click()
         time.sleep(1)
         driver.find_element_by_link_text('发票管理').click()
         time.sleep(2)

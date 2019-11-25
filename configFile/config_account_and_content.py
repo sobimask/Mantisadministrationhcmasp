@@ -4,13 +4,7 @@ from selenium import webdriver
 import datetime
 from lib.randomphone import randomphone
 #教务登录环境
-# administration_url="**"
-# administration_url="**"
-
-# administration_url="**"
-administration_url="**n"
-fuge="**"
-
+administration_url="https://tuosi03.n8.bjmantis.cn"
 
 #获取明日时间
 today = datetime.date.today()
@@ -36,7 +30,7 @@ student_centre={
      'transfer_return':'1',                      #报名-转班-原班型退费
      'assessment2': '100',                      #转班应缴费用
      'paid2':'1',                                 #转班实缴费用
-     'student':'13312393910',# 新增学员电话     报名电话        保持和新增电话一直
+     'student':'1331239'+randomphone(),# 新增学员电话     报名电话        保持和新增电话一直
      'name':'测试'+randomphone(),            #用户姓名
      'namem':'测试'+randomphone(),           #修改基本信息，学员名称
      'assessment':'100',     #报名应缴费用
@@ -72,9 +66,9 @@ study_service={
 
 #=========================================================================基础配置
 configuration={
-     'name1':'编程语言a7',           #项目配置一级项目名称
-     'name2':'pythona7',             #项目配置--二级项目名称
-     'exam':'编程语言a7',             #考期-修改--一级项目
+     'name1':'编程语言a7'+randomphone(),           #项目配置一级项目名称
+     'name2':'pythona7'+randomphone(),             #项目配置--二级项目名称
+     'exam':'编程语言a7'+randomphone(),             #考期-修改--一级项目
      'academy_name':'黄雀学院'+str(randomphone()),             #学院配置--新增学院名称
      'macademy_name':'黄雀学院分院'+str(randomphone()),       #学院配置--修改学院名称
      'service_provider':'螳螂科技7',       #服务商配置--新增服务商

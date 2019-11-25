@@ -65,7 +65,7 @@ class test_a_student_center_apply_return(unittest.TestCase):
 #断言
         masg=driver.find_element_by_xpath('//*[@id="reservation"]/div/div/ul/li/div[3]/div/div[2]/div/div[1]/div/div[1]/div/span[1]/div').text
         print(masg)
-        self.assertEquals(masg,'已退费')
+        self.assertEqual(masg,'已退费')
 
 
 

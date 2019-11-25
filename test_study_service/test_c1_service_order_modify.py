@@ -25,9 +25,9 @@ class test_c_service_order_modify(unittest.TestCase):
         driver = self.driver
         time.sleep(1)
     # 学服中心
-        driver.find_element_by_xpath('//*[@id="hisroot"]/div/div/section/aside/div/ul/li[17]/div[1]').click()
+        driver.find_element_by_xpath("//span[contains(.,'客服单管理')]").click()
         time.sleep(1)
-        driver.find_element_by_xpath('//*[@id="/mantis/service$Menu"]/li[1]/a').click()
+        driver.find_element_by_link_text('订单管理').click()
         time.sleep(2)
      # 查询
         driver.find_element_by_id('customerInfo').click()

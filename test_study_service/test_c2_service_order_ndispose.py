@@ -25,9 +25,9 @@ class test_c_service_order_dispose(unittest.TestCase):
         driver = self.driver
         time.sleep(1)
     # 学服中心
-        driver.find_element_by_xpath('//*[@id="hisroot"]/div/div/section/aside/div/ul/li[16]/div').click()
+        driver.find_element_by_xpath("//span[contains(.,'学服中心')]").click()
         time.sleep(1)
-        driver.find_element_by_link_text('//*[@id="/mantis/service$Menu"]/li[1]/a').click()
+        driver.find_element_by_link_text('订单管理').click()
         time.sleep(2)
      # 查询
         driver.find_element_by_id('customerInfo').click()

@@ -19,10 +19,10 @@ class test_c_student_center_payment(unittest.TestCase):
 
         # 传入参数
         #联系人电话号码
-        # f = open('D:\\Mantisadministrationhcmasp\\configFile\\student.txt', 'r')
-        # student_phone = f.read()
-        # f.close()
-        student_phone = student_centre['student']
+        f = open('D:\\Mantisadministrationhcmasp\\configFile\\student.txt', 'r')
+        student_phone = f.read()
+        f.close()
+
 
         time.sleep(2)
         driver = self.driver

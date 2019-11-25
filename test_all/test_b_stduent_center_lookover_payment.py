@@ -18,11 +18,11 @@ class test_b_stduent_center_lookover_payment(unittest.TestCase):
         u"""学员中心-报名-查看支付记录"""
 
         # 传入参数
-        #联系人电话号码
-        # f = open('D:\\Mantisadministrationhcmasp\\configFile\\student.txt', 'r', encoding='utf-8')
-        # student_phone = f.read()
-        # f.close()
-        student_phone = student_centre['student']
+
+        f = open('D:\\Mantisadministrationhcmasp\\configFile\\student.txt', 'r', encoding='utf-8')
+        student_phone = f.read()
+        f.close()
+
 
         time.sleep(2)
         driver = self.driver

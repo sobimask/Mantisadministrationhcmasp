@@ -41,7 +41,7 @@ class test_a_payment_confirmation(unittest.TestCase):
         driver = self.driver
         time.sleep(8)
 #财务管理
-        driver.find_element_by_xpath('//*[@id="hisroot"]/div/div/section/aside/div/ul/li[20]/div[1]').click()
+        driver.find_element_by_xpath("//span[contains(.,'财务管理')]").click()
         time.sleep(2)
         driver.find_element_by_link_text('支付确认').click()
         time.sleep(1)

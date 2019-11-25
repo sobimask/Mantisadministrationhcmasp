@@ -19,14 +19,19 @@ class test_a_exam_date(unittest.TestCase):
 
 
         #一级项目名称
-        name1=configuration['name1']
+        f =  open('D:\\Mantisadministrationhcmasp\\configFile\\name1.txt', 'r')
+        name1 =f.read()
+        f.close()
+
+
+        print(name1)
         #查询考期配置
         exam=configuration['exam']
 
         time.sleep(2)
         driver = self.driver
     #基础配置
-        driver.find_element_by_xpath('//*[@id="hisroot"]/div/div/section/aside/div/ul/li[12]/div[1]').click()
+        driver.find_element_by_xpath("//span[contains(.,'基础配置')]").click()
         time.sleep(1)
         driver.find_element_by_link_text('考期配置').click()
         time.sleep(2)

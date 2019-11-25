@@ -22,7 +22,7 @@ class test_a2_recorded_manage(unittest.TestCase):
         recorded_name=product_manage['recorded_name']
         driver = self.driver
     #产品管理
-        driver.find_element_by_xpath('//*[@id="hisroot"]/div/div/section/aside/div/ul/li[14]/div').click()
+        driver.find_element_by_xpath("//span[contains(.,'产品管理')]").click()
         time.sleep(1)
         driver.find_element_by_link_text('录播管理').click()
         time.sleep(2)

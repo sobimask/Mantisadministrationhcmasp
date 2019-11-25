@@ -40,21 +40,15 @@ class test_a_order_manage_addpayment(unittest.TestCase):
         driver = self.driver
         time.sleep(3)
 #学服中心
-        driver.find_element_by_xpath('//*[@id="hisroot"]/div/div/section/aside/div/ul/li[17]/div[1]').click()
+        driver.find_element_by_xpath("//span[contains(.,'学服中心')]").click()
         time.sleep(1)
         #订单管理
-        driver.find_element_by_xpath('//*[@id="/mantis/service$Menu"]/li[1]').click()
+        driver.find_element_by_link_text('订单管理').click()
         time.sleep(2)
         #查询
         driver.find_element_by_id('customerInfo').click()
         driver.find_element_by_id('customerInfo').send_keys(student_phone)
-        driver.find_element_by_xpath(
-
-
-
-
-
-            '//*[@id="hisroot"]/div/div/section/div/div/div/section/main/div/div/form/div/div[26]/button[1]').click()
+        driver.find_element_by_xpath('//*[@id="hisroot"]/div/div/section/div/div/div/section/main/div/div/form/div/div[26]/button[1]').click()
         time.sleep(2)
 
         #支付单
@@ -80,9 +74,9 @@ class test_a_order_manage_addpayment(unittest.TestCase):
         self.assertIsNotNone(masg,' ')
         #取消
         driver.find_element_by_xpath('/html/body/div[9]/div/div[2]/div/div[2]/div[3]/button').click()
-    #
-    # def tearDown(self):
-    #     self.driver.quit()
+
+    def tearDown(self):
+        self.driver.quit()
 
 if __name__ == "__main__":
     unittest.main()

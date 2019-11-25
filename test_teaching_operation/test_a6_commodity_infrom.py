@@ -22,7 +22,7 @@ class test_a_student_infrom(unittest.TestCase):
 
         driver = self.driver
     #教学运营
-        driver.find_element_by_xpath('//*[@id="hisroot"]/div/div/section/aside/div/ul/li[14]/div').click()
+        driver.find_element_by_xpath("//span[contains(.,'教学运营')]").click()
         time.sleep(1)
         driver.find_element_by_link_text('学员通知').click()
         time.sleep(2)

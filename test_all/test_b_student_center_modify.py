@@ -18,10 +18,9 @@ class test_alltest_a_student_center_modify(unittest.TestCase):
 
 #传入参数
         #新增学员电话号码
-        # f = open('D:\\Mantisadministrationhcmasp\\configFile\\student.txt', 'r')
-        # student_phone = f.read()
-        # f.close()
-        student_phone = student_centre['student']
+        f = open('D:\\Mantisadministrationhcmasp\\configFile\\student.txt', 'r')
+        student_phone = f.read()
+        f.close()
         #新增学员姓名
         student_name=student_centre['name']
         #班型选择

@@ -37,7 +37,7 @@ class test_b_return_manage_affirm(unittest.TestCase):
         driver = self.driver
         time.sleep(1)
 #学服中心
-        driver.find_element_by_xpath('//*[@id="hisroot"]/div/div/section/aside/div/ul/li[16]/div').click()
+        driver.find_element_by_xpath("//span[contains(.,'学服中心')]").click()
         time.sleep(2)
         driver.find_element_by_link_text('订单管理').click()
         time.sleep(2)
@@ -75,7 +75,7 @@ class test_b_return_manage_affirm(unittest.TestCase):
         driver.find_element_by_xpath('/html/body/div[9]/div/div[2]/div/div[2]/div[3]/button[2]').click()
         time.sleep(5)
 # 财务管理
-        driver.find_element_by_xpath('//*[@id="hisroot"]/div/div/section/aside/div/ul/li[20]/div[1]').click()
+        driver.find_element_by_xpath("//span[contains(.,'财务管理')]").click()
         time.sleep(2)
         driver.find_element_by_link_text('退费管理').click()
         time.sleep(2)

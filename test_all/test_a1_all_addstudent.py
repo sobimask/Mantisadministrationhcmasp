@@ -85,7 +85,7 @@ class test_all_add(unittest.TestCase):
         #
         name=driver.find_element_by_xpath('//*[@id="hisroot"]/div/div/section/div/div/div/section/main/div/div/div/section/section/main/section/main/div/div/div/div/div/div/div/div/div/table/tbody/tr/td[1]/a/div').text
         print(name)
-        self.assertEquals(name,student_name)
+        self.assertEqual(name,student_name)
         time.sleep(2)
 
 

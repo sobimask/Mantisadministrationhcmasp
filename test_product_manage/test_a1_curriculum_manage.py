@@ -26,7 +26,7 @@ class test_a1_recorded_manage(unittest.TestCase):
         class_time=product_manage['class_time']
         driver = self.driver
     #产品管理
-        driver.find_element_by_xpath('//*[@id="hisroot"]/div/div/section/aside/div/ul/li[14]/div').click()
+        driver.find_element_by_xpath("//span[contains(.,'产品管理')]").click()
         time.sleep(1)
         driver.find_element_by_link_text('课程管理').click()
         time.sleep(2)

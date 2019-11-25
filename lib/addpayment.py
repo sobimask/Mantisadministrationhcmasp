@@ -141,12 +141,14 @@ def addpayment(self,student_name,student_phone,student_class,assessment,paid):
         time.sleep(2)
         driver.find_element_by_xpath('//div/div/div/div/div/div/input').send_keys(tomorrowr)
         time.sleep(1)
+    except:
+        pass
 
+    finally:
         driver.find_element_by_xpath(
             '/html/body/div[9]/div/div[2]/div/div[2]/div[2]/section/main/div/div/div/div/button[2]').click()
         time.sleep(2)
-    except:
-        pass
+
 
 
     #提交

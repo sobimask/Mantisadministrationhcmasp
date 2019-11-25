@@ -18,10 +18,10 @@ class test_b_student_center_tsence(unittest.TestCase):
 
         # 传入参数
         #联系人电话号码
-        # f = open('D:\\Mantisadministrationhcmasp\\configFile\\student.txt', 'r')
-        # student_phone = f.read()
-        # f.close()
-        student_phone = student_centre['student']
+        f = open('D:\\Mantisadministrationhcmasp\\configFile\\student.txt', 'r')
+        student_phone = f.read()
+        f.close()
+
         driver = self.driver
         time.sleep(1)
         # 学员中心
@@ -54,14 +54,14 @@ class test_b_student_center_tsence(unittest.TestCase):
         time.sleep(1)
 #断言
         #学服中心
-        driver.find_element_by_xpath('//*[@id="hisroot"]/div/div/section/aside/div/ul/li[16]/div').click()
+        driver.find_element_by_xpath("//span[contains(.,'学服中心')]").click()
         time.sleep(1)
         driver.find_element_by_link_text('订单管理').click()
         time.sleep(2)
         #查询
         driver.find_element_by_id('customerInfo').click()
         driver.find_element_by_id('customerInfo').send_keys(student_phone)
-        driver.find_element_by_xpath('//*[@id="hisroot"]/div/div/section/div/div/div/section/main/div/div/form/div/div[26]/button[1]').click()
+        driver.find_element_by_xpath('//*[@id="hisroot"]/div/div/section/div/div/div/section/main/div/div/form/div/div[21]/button[1]').click()
         time.sleep(1)
         id=driver.find_element_by_xpath('//*[@id="hisroot"]/div/div/section/div/div/div/section/main/div/div/div/div/div/div/div/div/div/div/div[1]/div/table/tbody/tr[1]/td[3]/span').text
         print(id)

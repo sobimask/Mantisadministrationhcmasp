@@ -17,11 +17,10 @@ class test_b_student_center_apply_addservice(unittest.TestCase):
         u"""学员中心-报名-增加客服单"""
 
         # 传入参数
-        #联系人电话号码
-        # f = open('D:\\Mantisadministrationhcmasp\\configFile\\student.txt', 'r')
-        # student_phone = f.read()
-        # f.close()
-        student_phone = student_centre['student']
+        f = open('D:\\Mantisadministrationhcmasp\\configFile\\student.txt', 'r')
+        student_phone = f.read()
+        f.close()
+
         time.sleep(2)
         driver = self.driver
         time.sleep(1)

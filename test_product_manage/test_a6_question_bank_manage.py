@@ -24,7 +24,7 @@ class test_a6_question_bank_manage(unittest.TestCase):
 
         driver = self.driver
     #产品管理
-        driver.find_element_by_xpath('//*[@id="hisroot"]/div/div/section/aside/div/ul/li[14]/div').click()
+        driver.find_element_by_xpath("//span[contains(.,'产品管理')]").click()
         time.sleep(1)
         driver.find_element_by_link_text('题库管理').click()
         time.sleep(2)

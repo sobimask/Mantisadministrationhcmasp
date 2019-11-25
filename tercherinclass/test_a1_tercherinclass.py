@@ -1,13 +1,15 @@
-
-from lib.login import electronic_login
+from lib.login import electronic_login,electronic_login1
 import datetime
 import time
 import unittest
 from selenium import webdriver
+from configFile.config_account_and_content import product_manage
+from selenium.webdriver.common.action_chains import ActionChains
 
-startday =(datetime.datetime.now()).strftime("%Y-%m-%d")
-starthour  =(datetime.datetime.now()+datetime.timedelta(hours=0.5)).strftime("%H:%M")
-endhour = (datetime.datetime.now()+datetime.timedelta(hours=2.5)).strftime("%H:%M")
+startday = (datetime.datetime.now()).strftime("%Y-%m-%d")
+starthour = (datetime.datetime.now() + datetime.timedelta(hours=0.5)).strftime("%H:%M")
+endhour = (datetime.datetime.now() + datetime.timedelta(hours=2.5)).strftime("%H:%M")
+
 
 class test_a1_tercherinclass(unittest.TestCase):
 
@@ -15,8 +17,7 @@ class test_a1_tercherinclass(unittest.TestCase):
         self.driver = webdriver.Chrome()
         self.driver.implicitly_wait(30)
         # 用户登录
-        electronic_login(self)
-
+        #electronic_login(self)
 
     def test_a1_tercherinclass(self):
         # # 新增课程名称
@@ -24,7 +25,8 @@ class test_a1_tercherinclass(unittest.TestCase):
         # # 新增模块名称
         # module_name = product_manage['module_name']
         # # 新增课次名称
-        # class_time = product_manage['class_time']
+        #class_time = product_manage['class_time']
+        class_time = '课次名称1932'
         driver = self.driver
         # #产品管理
         # driver.find_element_by_xpath('//*[@id="hisroot"]/div/div/section/aside/div/ul/li[13]/div').click()
@@ -231,40 +233,41 @@ class test_a1_tercherinclass(unittest.TestCase):
         # driver.find_element_by_xpath('/html/body/div[2]/div/div[2]/div/div[2]/div[3]/button[3]').click()
         # time.sleep(2)
 
-        #老师登陆
-        #electronic_login(self)
+        # 老师登陆
+        electronic_login1(self)
         time.sleep(2)
+        #
+        # # 查询今天课程
+        # driver.find_element_by_xpath('//*[@id="courseTime"]').click()
+        # time.sleep(1)
+        # driver.find_element_by_xpath('/html/body/div[2]/div/div/div/div/div[2]/div/div/div[1]').click()
+        # time.sleep(1)
 
-        #查询今天课程
-        driver.find_element_by_xpath('//*[@id="courseTime"]').click()
-        time.sleep(1)
-        driver.find_element_by_xpath('/html/body/div[2]/div/div/div/div/div[2]/div/div/div[1]').click()
-        time.sleep(1)
-        old = driver.current_window_handle
-        print('当前'+old)
-        #开始讲课
-        driver.find_element_by_xpath('//*[@id="hisroot"]/div/div/section/div/div/div/section/main/div/section/main/section/main/div/section/main/div/div/div/div/div/div/div/div/div/table/tbody/tr/td[9]/a').click()
-        time.sleep(2)
+        # 开始讲课
+        w = driver.find_element_by_xpath("//td[contains(.,'" + class_time + "')]")
+        try:
+            ActionChains(driver).move_to_element_with_offset(w, 652, 17).click().perform()
+        except:
+            ActionChains(driver).move_to_element_with_offset(w, 582, 17).click().perform()
+        finally:
+            time.sleep(3)
+            # 切换窗口句柄
+            all = driver.window_handles
+            driver.switch_to.window(all[1])
 
-
-        #driver.find_element_by_link_text()
-
-        #切换窗口句柄
-        all = driver.window_handles
-        print("所有 %s" % all)
-        new = driver.switch_to.window(all[-1])
-        print("现在 %s" % new)
-        #点击启动云直播
-        driver.find_element_by_link_text('启动云直播').click()
-        time.sleep(1)
-        #弹窗确认
-        driver.switch_to.alert().accept()
-
-
+            # 点击启动云直播
+            driver.switch_to.frame(0)
+            driver.find_element_by_link_text('启动云直播').click()
+            driver.switch_to.default_content()
+            time.sleep(3)
+            # 弹窗确认
+            text = driver.switch_to.alert().text
+            print(text)
+            #driver.switch_to.alert().accept()
 
     def tearDown(self) -> None:
         pass
 
+
 if __name__ == "__main__":
     unittest.main()
-
