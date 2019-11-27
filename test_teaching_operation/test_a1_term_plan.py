@@ -15,7 +15,13 @@ class test_a1_term_plan(unittest.TestCase):
     def test_a1_term_plan(self):
         u"""教学运营-学期计划-新增-修改"""
 
+        f = open('D:\\Mantisadministrationhcmasp\\configFile\\name1.txt', 'r', encoding='utf-8')
+        name1 = f.read()
+        f.close()
 
+        f = open('D:\\Mantisadministrationhcmasp\\configFile\\name2.txt', 'r', encoding='utf-8')
+        name2 = f.read()
+        f.close()
         #计划名称
         plan_name=teaching_operation['plan_name']
         #修改计划名称
@@ -33,10 +39,14 @@ class test_a1_term_plan(unittest.TestCase):
         time.sleep(2)
         #一级项目
         driver.find_element_by_xpath('/html/body/div[2]/div/div[2]/div/div[2]/div[2]/form/div[1]/div[2]/div/span/div/div/div').click()
-        driver.find_element_by_xpath('/html/body/div[3]/div/div/div/ul').find_element_by_class_name('ant-select-dropdown-menu-item').click()
+        time.sleep(1)
+        driver.find_element_by_xpath("//li[contains(.,'"+name1+"')]").click()
+        time.sleep(1)
         #二级项目
         driver.find_element_by_xpath('/html/body/div[2]/div/div[2]/div/div[2]/div[2]/form/div[2]/div[2]/div/span/div/div/div').click()
-        driver.find_element_by_xpath('/html/body/div[4]/div/div/div/ul').find_element_by_class_name('ant-select-dropdown-menu-item').click()
+        time.sleep(1)
+        driver.find_element_by_xpath("//li[contains(.,'"+name2+"')]").click()
+        time.sleep(1)
         #计划名称
         driver.find_element_by_xpath('/html/body/div[2]/div/div[2]/div/div[2]/div[2]/form/div[3]/div[2]/div/span/input').click()
         driver.find_element_by_xpath('/html/body/div[2]/div/div[2]/div/div[2]/div[2]/form/div[3]/div[2]/div/span/input').send_keys(plan_name)

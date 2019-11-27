@@ -21,8 +21,12 @@ class test_a_project1_add(unittest.TestCase):
         #二级项目名称
         name2=configuration['name2']
 
-        with open('D:\\Mantisadministrationhcmasp\\configFile\\name1.txt', 'w') as f:
+        with open('D:\\Mantisadministrationhcmasp\\configFile\\name1.txt', 'w',encoding= 'utf-8') as f:
             f.write(name1)
+            f.close()
+
+        with open('D:\\Mantisadministrationhcmasp\\configFile\\name2.txt', 'w',encoding= 'utf-8') as f:
+            f.write(name2)
             f.close()
         driver = self.driver
     #基础配置
@@ -38,7 +42,7 @@ class test_a_project1_add(unittest.TestCase):
         driver.find_element_by_id('name').send_keys(name1)
         #描述
         driver.find_element_by_id('descInfo').click()
-        driver.find_element_by_id('descInfo').send_keys('开发必备')
+        driver.find_element_by_id('descInfo').send_keys('测试')
         #保存
         driver.find_element_by_xpath('/html/body/div[2]/div/div[2]/div/div[2]/div[3]/button[2]').click()
         time.sleep(2)

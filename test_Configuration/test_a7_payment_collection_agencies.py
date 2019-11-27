@@ -61,7 +61,7 @@ class test_a_express_company(unittest.TestCase):
 #修改断言
         masg=driver.find_element_by_xpath('//*[@id="hisroot"]/div/div/section/div/div/div/section/main/div/section/main/section/main/div/div/div/div/div/div/div/div/div/div[2]/div/table/tbody/tr/td[2]').text
         print(masg)
-        self.assertEquals(masg,collection_remark)
+        self.assertEqual(masg,collection_remark)
         time.sleep(1)
 
     def tearDown(self):

@@ -20,6 +20,9 @@ class test_a_service_provider(unittest.TestCase):
 
         #新增服务商
         service_provider=configuration['service_provider']
+        with open('D:\\Mantisadministrationhcmasp\\configFile\\service_provider.txt', 'w',encoding= 'utf-8') as f:
+            f.write(service_provider)
+            f.close()
 
         time.sleep(2)
         driver = self.driver

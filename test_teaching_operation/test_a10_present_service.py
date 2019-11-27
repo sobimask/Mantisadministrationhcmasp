@@ -17,6 +17,14 @@ class test_a_present_service(unittest.TestCase):
         u"""教学运营-赠送服务"""
 
 
+        f = open('D:\\Mantisadministrationhcmasp\\configFile\\name1.txt', 'r', encoding='utf-8')
+        name1 = f.read()
+        f.close()
+
+        f = open('D:\\Mantisadministrationhcmasp\\configFile\\name2.txt', 'r', encoding='utf-8')
+        name2 = f.read()
+
+
         #赠送商品名称
         present=teaching_operation['present']
         #操作人
@@ -32,10 +40,12 @@ class test_a_present_service(unittest.TestCase):
         time.sleep(2)
     #选择赠送商品学员  购买商品  一级项目
         driver.find_element_by_xpath('/html/body/div[2]/div/div[2]/div/div[2]/div[2]/dl/dd/div/div[1]/div/div').click()
-        driver.find_element_by_xpath('/html/body/div[3]/div/div/div/ul').find_element_by_class_name('ant-select-dropdown-menu-item').click()
+        time.sleep(1)
+        driver.find_element_by_xpath("//li[contains(.,'"+name1+"')]").click()
         #二级项目
         driver.find_element_by_xpath('/html/body/div[2]/div/div[2]/div/div[2]/div[2]/dl/dd/div/div[2]/div/div').click()
-        driver.find_element_by_xpath('/html/body/div[4]/div/div/div/ul').find_element_by_class_name('ant-select-dropdown-menu-item').click()
+        time.sleep(1)
+        driver.find_element_by_xpath("//li[contains(.,'"+name2+"')]").click()
         #选择商品
         driver.find_element_by_xpath('/html/body/div[2]/div/div[2]/div/div[2]/div[2]/dl/dd/div/div[3]/div/div').click()
         driver.find_element_by_xpath('/html/body/div[5]/div/div/div/ul').find_element_by_class_name('ant-select-dropdown-menu-item').click()

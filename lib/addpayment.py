@@ -4,10 +4,9 @@ from configFile.config_account_and_content import tomorrowr
 import time
 
 def addpayment(self,student_name,student_phone,student_class,assessment,paid):
+
     u"""增加支付单-报名"""
 
-    # 用户登录
-    # electronic_login(self)
     time.sleep(2)
     driver = self.driver
     # 新增学员
@@ -133,26 +132,25 @@ def addpayment(self,student_name,student_phone,student_class,assessment,paid):
     driver.find_element_by_xpath('/html/body/div[9]/div/div[2]/div/div[2]/div[2]/section/main/div/div/div/form/div[3]/div/div[3]/div/div[2]/div/span/input').send_keys(student_phone)
     time.sleep(1)
     #支付金额
+
     driver.find_element_by_xpath('/html/body/div[9]/div/div[2]/div/div[2]/div[2]/section/main/div/div/div/form/div[3]/div/div[5]/div/div[2]/div/span/div/div[2]/input').click()
     driver.find_element_by_xpath('/html/body/div[9]/div/div[2]/div/div[2]/div[2]/section/main/div/div/div/form/div[3]/div/div[5]/div/div[2]/div/span/div/div[2]/input').send_keys(paid)
-    #预补缴日期
+
+
     try:
+    #预补缴日期
         driver.find_element_by_xpath("//input[@placeholder='请选择补缴日期']").click()
         time.sleep(2)
         driver.find_element_by_xpath('//div/div/div/div/div/div/input').send_keys(tomorrowr)
         time.sleep(1)
-    except:
-        pass
+        driver.find_element_by_xpath(
+        '/html/body/div[9]/div/div[2]/div/div[2]/div[2]/section/main/div/div/div/div/button[2]').click()
+        time.sleep(2)
 
-    finally:
+    except:
         driver.find_element_by_xpath(
             '/html/body/div[9]/div/div[2]/div/div[2]/div[2]/section/main/div/div/div/div/button[2]').click()
         time.sleep(2)
-
-
-
-    #提交
-
 
 
 if __name__ == "__main__":

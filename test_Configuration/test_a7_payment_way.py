@@ -51,7 +51,7 @@ class test_a_payment_way(unittest.TestCase):
         time.sleep(2)
         masg=driver.find_element_by_xpath('//*[@id="hisroot"]/div/div/section/div/div/div/section/main/div/section/main/section/main/div/section/main/div/div/div/div/div/div/div/div[2]/div/table/tbody/tr/td[2]').text
         print(masg)
-        self.assertEquals(masg,payment_way)
+        self.assertEqual(masg,payment_way)
         time.sleep(2)
 #修改支付方式
         driver.find_element_by_link_text('修改').click()

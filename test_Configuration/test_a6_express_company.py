@@ -42,9 +42,9 @@ class test_a_campus(unittest.TestCase):
         time.sleep(2)
 #新增断言
         #查询
-        driver.find_element_by_xpath('//*[@id="hisroot"]/div/div/section/div/div/div/section/main/div/div/form/div[1]/div/div/div[2]/div/span/input').click()
-        driver.find_element_by_xpath('//*[@id="hisroot"]/div/div/section/div/div/div/section/main/div/div/form/div[1]/div/div/div[2]/div/span/input').send_keys(express)
-        driver.find_element_by_xpath('//*[@id="hisroot"]/div/div/section/div/div/div/section/main/div/div/form/div[2]/div/button[1]').click()
+        driver.find_element_by_xpath("//input[@id='name']").click()
+        driver.find_element_by_xpath("//input[@id='name']").send_keys(express)
+        driver.find_element_by_xpath("(//button[@type='button'])[3]").click()
         time.sleep(2)
         masg=driver.find_element_by_xpath('//*[@id="hisroot"]/div/div/section/div/div/div/section/main/div/div/div/div/div/div/div/div/div/div[2]/div/table/tbody/tr/td[1]').text
         print(masg)
@@ -73,7 +73,7 @@ class test_a_campus(unittest.TestCase):
         masg = driver.find_element_by_xpath(
             '//*[@id="hisroot"]/div/div/section/div/div/div/section/main/div/div/div/div/div/div/div/div/div/div[2]/div/table/tbody/tr/td[2]').text
         print(masg)
-        self.assertEquals(masg,express_describe)
+        self.assertEqual(masg,express_describe)
         time.sleep(2)
 #删除  -删除
         driver.find_element_by_xpath('//*[@id="hisroot"]/div/div/section/div/div/div/section/main/div/div/div/div/div/div/div/div/div/div[2]/div/table/tbody/tr/td[3]/span/span[2]/a').click()
@@ -94,7 +94,7 @@ class test_a_campus(unittest.TestCase):
         #
         masg=driver.find_element_by_xpath('//*[@id="hisroot"]/div/div/section/div/div/div/section/main/div/div/div/div/div/div/div/div/div/div[2]/div[2]/div/p').text
         print(masg)
-        self.assertEquals(masg,'暂无数据')
+        self.assertEqual(masg,'暂无数据')
 
 
     def tearDown(self):

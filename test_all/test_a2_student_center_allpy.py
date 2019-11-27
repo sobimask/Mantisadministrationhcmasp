@@ -26,6 +26,8 @@ class test_a_student_center_allpy(unittest.TestCase):
         assessment=student_centre['assessment']
         #实缴费用
         paid=student_centre['paid']
+        #报名班型
+        class_name=student_centre['class1']
 
 
         # time.sleep(2)
@@ -89,6 +91,9 @@ class test_a_student_center_allpy(unittest.TestCase):
         # driver.find_element_by_xpath(
         #     '/html/body/div[11]/div/div[2]/div/div[2]/div[2]/div/div/div/div/div[1]/div/div[3]/div/div[2]/div/span/input').click()
         driver.find_element_by_css_selector('.ant-table-row:nth-child(1) .ant-checkbox-input').click()
+        # driver.find_element_by_xpath('/html/body/div[4]/div/div[2]/div/div[2]/div[2]/div/div/div/div/div[1]/div/div[3]/div/div[2]/div/span/input').click()
+        # driver.find_element_by_xpath('/html/body/div[4]/div/div[2]/div/div[2]/div[2]/div/div/div/div/div[1]/div/div[3]/div/div[2]/div/span/input').send_keys(class_name)
+
         time.sleep(1)
         # 确定
         driver.find_element_by_xpath('//div[2]/div[3]/button[2]').click()
@@ -99,7 +104,7 @@ class test_a_student_center_allpy(unittest.TestCase):
         driver.find_element_by_xpath('/html/body/div[5]/div/div/div/ul').find_element_by_class_name(
             'ant-select-dropdown-menu-item').click()
         # 应缴费用
-        driver.find_element_by_xpath('/html/body/div[2]/div/div[2]/div/div[2]/div[2]/section/main/div/div/div/div[1]/div[2]/div/div/div/div/div/div/table/tbody/tr/td[8]/div/div[2]/input').send_keys('100')
+        driver.find_element_by_xpath('/html/body/div[2]/div/div[2]/div/div[2]/div[2]/section/main/div/div/div/div[1]/div[2]/div/div/div/div/div/div/table/tbody/tr/td[8]/div/div[2]/input').send_keys(assessment)
 
         time.sleep(1)
         #快递发放

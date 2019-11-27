@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 from lib.login import electronic_login
-from lib.add_student_allpy import add_student_allpy
+from lib.addpayment import addpayment
 from configFile.config_account_and_content import study_service,student_centre
 from selenium import webdriver
 import unittest
@@ -31,8 +31,8 @@ class test_a_order_manage_cancellation(unittest.TestCase):
 
 
         #d调取新增用户-报名
-        add_student_allpy(self, student_name, student_phone, student_class, assessment, paid)
-
+        addpayment(self, student_name, student_phone, student_class, assessment, paid)
+        time.sleep(5)
         driver = self.driver
         time.sleep(1)
 #学服中心
@@ -44,7 +44,7 @@ class test_a_order_manage_cancellation(unittest.TestCase):
         driver.find_element_by_id('customerInfo').click()
         driver.find_element_by_id('customerInfo').send_keys(student_phone)
         driver.find_element_by_xpath(
-            '//*[@id="hisroot"]/div/div/section/div/div/div/section/main/div/div/form/div/div[26]/button[1]').click()
+            '//*[@id="hisroot"]/div/div/section/div/div/div/section/main/div/div/form/div/div[21]/button[1]').click()
         time.sleep(2)
         #作废
         driver.find_element_by_xpath('//*[@id="hisroot"]/div/div/section/div/div/div/section/main/div/div/div/div/div/div/div/div/div/div/div[3]/div/div/table/tbody/tr[1]/td/div/span[1]/a').click()

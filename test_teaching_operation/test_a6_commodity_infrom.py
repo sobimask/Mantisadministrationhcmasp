@@ -16,6 +16,13 @@ class test_a_student_infrom(unittest.TestCase):
     def test_a_student_infrom(self):
         u"""教学运营-学员通知-商品维度"""
 
+        f = open('D:\\Mantisadministrationhcmasp\\configFile\\name1.txt', 'r', encoding='utf-8')
+        name1 = f.read()
+        f.close()
+
+        f = open('D:\\Mantisadministrationhcmasp\\configFile\\name2.txt', 'r', encoding='utf-8')
+        name2 = f.read()
+        f.close()
         #商品维度-通知标题
         commodity_infrom=teaching_operation['commodity_infrom']
 
@@ -36,10 +43,12 @@ class test_a_student_infrom(unittest.TestCase):
         driver.find_element_by_xpath('/html/body/div[2]/div/div[2]/div/div[2]/div[2]/form/div[1]/div[2]/div/div[2]/div/span/div/label[1]/span[1]/input').click()
         #一级项目
         driver.find_element_by_xpath('/html/body/div[2]/div/div[2]/div/div[2]/div[2]/form/div[1]/div[3]/div/div[2]/div/span/div/div/div').click()
-        driver.find_element_by_xpath('/html/body/div[3]/div/div/div/ul').find_element_by_class_name('ant-select-dropdown-menu-item').click()
+        time.sleep(1)
+        driver.find_element_by_xpath("//li[contains(.,'"+name1+"')]").click()
         #二级项目
         driver.find_element_by_xpath('/html/body/div[2]/div/div[2]/div/div[2]/div[2]/form/div[1]/div[4]/div/div[2]/div/span/div/div/div').click()
-        driver.find_element_by_xpath('/html/body/div[4]/div/div/div/ul').find_element_by_class_name('ant-select-dropdown-menu-item').click()
+        time.sleep(1)
+        driver.find_element_by_xpath("//li[contains(.,'"+name2+"')]").click()
         #商品
         driver.find_element_by_xpath('/html/body/div[2]/div/div[2]/div/div[2]/div[2]/form/div[1]/div[5]/div/div[2]/div/span/div/div/div').click()
         driver.find_element_by_xpath('/html/body/div[5]/div/div/div/ul').find_element_by_class_name('ant-select-dropdown-menu-item').click()

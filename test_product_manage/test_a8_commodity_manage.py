@@ -27,71 +27,49 @@ class test_a8_commodity_manage(unittest.TestCase):
         #修改班型名称
         mcommodity_name = product_manage['mcommodity_name']
 
+        f = open('D:\\Mantisadministrationhcmasp\\configFile\\name1.txt', 'r', encoding='utf-8')
+        name1 = f.read()
+        f.close()
+
         driver = self.driver
     #产品管理
         driver.find_element_by_xpath("//span[contains(.,'产品管理')]").click()
         time.sleep(1)
         driver.find_element_by_link_text('班型管理').click()
         time.sleep(2)
-        #新增
-        driver.find_element_by_xpath('//*[@id="hisroot"]/div/div/section/div/div/div/section/main/div/section/main/div/div/div/div/div/div/div/div[1]/span/button[1]').click()
-        time.sleep(2)
-        #班型名称
-        driver.find_element_by_xpath('/html/body/div[2]/div/div[2]/div/div[2]/div[2]/form/div[1]/div[1]/div/div[2]/div/span/input').click()
-        driver.find_element_by_xpath('/html/body/div[2]/div/div[2]/div/div[2]/div[2]/form/div[1]/div[1]/div/div[2]/div/span/input').send_keys(commodity_name)
-        #一级项目
-        driver.find_element_by_xpath('/html/body/div[2]/div/div[2]/div/div[2]/div[2]/form/div[1]/div[3]/div/div[2]/div/span/div/div/div').click()
-        driver.find_element_by_xpath('/html/body/div[3]/div/div/div/ul').find_element_by_class_name('ant-select-dropdown-menu-item').click()
-        #二级项目
-        driver.find_element_by_xpath('/html/body/div[2]/div/div[2]/div/div[2]/div[2]/form/div[1]/div[4]/div/div[2]/div/span/div/div/div').click()
-        driver.find_element_by_xpath('/html/body/div[4]/div/div/div/ul').find_element_by_class_name('ant-select-dropdown-menu-item').click()
-        #班型类型
-        driver.find_element_by_xpath('/html/body/div[2]/div/div[2]/div/div[2]/div[2]/form/div[2]/div[1]/div/div[2]/div/span/div/div/div').click()
-        driver.find_element_by_xpath('/html/body/div[5]/div/div/div/ul').find_element_by_class_name('ant-select-dropdown-menu-item').click()
-        #结算方式
-        driver.find_element_by_xpath('/html/body/div[2]/div/div[2]/div/div[2]/div[2]/form/div[2]/div[2]/div/div[2]/div/span/div/div/div').click()
-        driver.find_element_by_xpath('/html/body/div[6]/div/div/div/ul').find_element_by_class_name('ant-select-dropdown-menu-item').click()
-        #结算值
-        driver.find_element_by_xpath('/html/body/div[2]/div/div[2]/div/div[2]/div[2]/form/div[2]/div[3]/div/div[2]/div/span/input').click()
-        driver.find_element_by_xpath('/html/body/div[2]/div/div[2]/div/div[2]/div[2]/form/div[2]/div[3]/div/div[2]/div/span/input').send_keys(99)
-        #合作方
-        driver.find_element_by_xpath('/html/body/div[2]/div/div[2]/div/div[2]/div[2]/form/div[3]/div[1]/div/div[2]/div/span/div/div/div').click()
-        driver.find_element_by_xpath('/html/body/div[7]/div/div/div/ul').find_element_by_class_name('ant-select-dropdown-menu-item').click()
-        #成本价
-        driver.find_element_by_xpath('/html/body/div[2]/div/div[2]/div/div[2]/div[2]/form/div[3]/div[2]/div/div[2]/div/span/input').click()
-        driver.find_element_by_xpath('/html/body/div[2]/div/div[2]/div/div[2]/div[2]/form/div[3]/div[2]/div/div[2]/div/span/input').send_keys(88)
-        #服务期
-        driver.find_element_by_id('servicePeriod').click()
-        time.sleep(1)
-        driver.find_element_by_id('servicePeriod').send_keys(180)
-        #保存
-        driver.find_element_by_xpath('/html/body/div[2]/div/div[2]/div/div[2]/div[3]/div/button[3]').click()
-        time.sleep(2)
+
 #查询
-        driver.find_element_by_xpath('//*[@id="hisroot"]/div/div/section/div/div/div/section/main/div/section/header/form/div/div[3]/div/div[2]/div/span/input').click()
-        driver.find_element_by_xpath('//*[@id="hisroot"]/div/div/section/div/div/div/section/main/div/section/header/form/div/div[3]/div/div[2]/div/span/input').send_keys(commodity_name)
-        driver.find_element_by_xpath('//*[@id="hisroot"]/div/div/section/div/div/div/section/main/div/section/header/form/div/div[7]/button[1]').click()
+        driver.find_element_by_xpath('//*[@id="firstProductId"]/div/div').click()
+        time.sleep(1)
+        driver.find_element_by_xpath('//li[text()="' + name1 + '"]').click()
+        driver.find_element_by_xpath("//button[contains(.,'查 询')]").click()
         time.sleep(2)
         #上架
-        driver.find_element_by_xpath('//*[@id="hisroot"]/div/div/section/div/div/div/section/main/div/section/main/div/div/div/div/div/div/div/div[2]/div/table/tbody/tr[1]/td[12]/span/a[3]').click()
+        driver.find_element_by_link_text('上架').click()
         time.sleep(2)
         #所属学院
-        driver.find_element_by_xpath('/html/body/div[2]/div/div[2]/div/div[2]/div[2]/form/div[3]/div[1]/div/div[2]/div/span/div/div/div').click()
-        driver.find_element_by_xpath('/html/body/div[3]/div/div/div/ul').find_element_by_class_name('ant-select-dropdown-menu-item').click()
+        driver.find_element_by_xpath('//div[3]/div/div/div[2]/div/span/div/div/div').click()
+        time.sleep(1)
+        driver.find_element_by_xpath('//div[4]/div/div/div/ul/li').click()
         #商品名称
-        driver.find_element_by_xpath('/html/body/div[2]/div/div[2]/div/div[2]/div[2]/form/div[3]/div[2]/div/div[2]/div/span/input').click()
-        driver.find_element_by_xpath('/html/body/div[2]/div/div[2]/div/div[2]/div[2]/form/div[3]/div[2]/div/div[2]/div/span/input').send_keys(commodity_name)
+        driver.find_element_by_xpath("(//input[@id='name'])[2]").send_keys(commodity_name)
+        time.sleep(1)
+
         #服务商
-        driver.find_element_by_xpath('/html/body/div[2]/div/div[2]/div/div[2]/div[2]/form/div[6]/div[1]/div/div[2]/div/span/div/div/div').click()
-        driver.find_element_by_xpath('/html/body/div[4]/div/div/div/ul').find_element_by_class_name('ant-select-dropdown-menu-item').click()
+        driver.find_element_by_xpath("//div[@id='serviceAgentId']/div/div/div").click()
+        time.sleep(1)
+        driver.find_element_by_xpath('//div[5]/div/div/div/ul/li').click()
+        time.sleep(1)
         #最低价
-        driver.find_element_by_xpath('/html/body/div[2]/div/div[2]/div/div[2]/div[2]/form/div[7]/div[1]/div/div[2]/div/span/span/span/input').click()
-        driver.find_element_by_xpath('/html/body/div[2]/div/div[2]/div/div[2]/div[2]/form/div[7]/div[1]/div/div[2]/div/span/span/span/input').send_keys(commodity_minimum_price)
+
+        driver.find_element_by_id('minPrice').send_keys(commodity_minimum_price)
+        time.sleep(1)
         #出售价格
-        driver.find_element_by_xpath('/html/body/div[2]/div/div[2]/div/div[2]/div[2]/form/div[7]/div[2]/div/div[2]/div/span/span/span/input').click()
-        driver.find_element_by_xpath('/html/body/div[2]/div/div[2]/div/div[2]/div[2]/form/div[7]/div[2]/div/div[2]/div/span/span/span/input').send_keys(commodity_sell_price)
+
+        driver.find_element_by_id('price').send_keys(commodity_sell_price)
+        time.sleep(1)
         #保存
-        driver.find_element_by_xpath('/html/body/div[2]/div/div[2]/div/div[2]/div[3]/button[2]').click()
+        driver.find_element_by_xpath("//button[contains(.,'保 存')]").click()
         time.sleep(2)
 
 
@@ -99,29 +77,17 @@ class test_a8_commodity_manage(unittest.TestCase):
 
         driver.find_element_by_link_text('商品管理').click()
         #查询
-        driver.find_element_by_xpath('//*[@id="hisroot"]/div/div/section/div/div/div/section/main/div/section/header/form/div[2]/div[3]/div/div[2]/div/span/input').click()
-        driver.find_element_by_xpath('//*[@id="hisroot"]/div/div/section/div/div/div/section/main/div/section/header/form/div[2]/div[3]/div/div[2]/div/span/input').send_keys(commodity_name)
-        driver.find_element_by_xpath('//*[@id="hisroot"]/div/div/section/div/div/div/section/main/div/section/header/form/div[3]/div[3]/button[1]').click()
+
+        driver.find_element_by_id('name').send_keys(commodity_name)
+        driver.find_element_by_xpath("//button[contains(.,'查 询')]").click()
         time.sleep(2)
     #断言
-        # masg=driver.find_element_by_xpath('//*[@id="hisroot"]/div/div/section/div/div/div/section/main/div/section/main/div/div/div/div/div/div/div[2]/div[1]/div/table/tbody/tr/td[8]').text
-        # print(masg)
-        # self.assertEqual(masg,commodity_name)
-        # time.sleep(2)
-#修改
-        driver.find_element_by_xpath('//*[@id="hisroot"]/div/div/section/div/div/div/section/main/div/section/main/div/div/div/div/div/div/div[2]/div[3]/div/div/table/tbody/tr/td/span/a[1]').click()
-       #修改商品名称
-        driver.find_element_by_xpath('/html/body/div[2]/div/div[2]/div/div[2]/div[2]/form/div[2]/div[1]/div/div[2]/div/span/input').clear()
-        driver.find_element_by_xpath('/html/body/div[2]/div/div[2]/div/div[2]/div[2]/form/div[2]/div[1]/div/div[2]/div/span/input').send_keys(mcommodity_name)
-        driver.find_element_by_xpath('/html/body/div[2]/div/div[2]/div/div[2]/div[3]/button[2]').click()
-        time.sleep(2)
-    #断言
-        masg=driver.find_element_by_xpath('//*[@id="hisroot"]/div/div/section/div/div/div/section/main/div/section/main/div/div/div/div/div/div/div[2]/div[2]/div/div/table/tbody/tr/td[3]').text
+        masg=driver.find_element_by_xpath('//div[2]/div[2]/div/div/table/tbody/tr/td[3]').text
         print(masg)
-        self.assertEqual(masg,mcommodity_name)
+        self.assertEqual(masg,commodity_name)
+        time.sleep(2)
 
     def tearDown(self):
-
        self.driver.quit()
 
 

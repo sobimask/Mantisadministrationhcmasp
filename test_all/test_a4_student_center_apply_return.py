@@ -42,6 +42,7 @@ class test_a_student_center_apply_return(unittest.TestCase):
         time.sleep(1)
         #退费
         driver.find_element_by_xpath('/html/body/div[9]/div/div/ul/li[3]').click()
+        time.sleep(2)  #新增等待
         #扣费金额
         driver.find_element_by_xpath('/html/body/div[10]/div/div[2]/div/div[2]/div[2]/form/div[2]/div[2]/div/div[2]/div/div[2]/div/span/div/div[2]/input').click()
         driver.find_element_by_xpath('/html/body/div[10]/div/div[2]/div/div[2]/div[2]/form/div[2]/div[2]/div/div[2]/div/div[2]/div/span/div/div[2]/input').send_keys(1)

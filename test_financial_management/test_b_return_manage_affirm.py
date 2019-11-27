@@ -35,7 +35,7 @@ class test_b_return_manage_affirm(unittest.TestCase):
         add_student_allpy(self, student_name, student_phone, student_class, assessment, paid)
 
         driver = self.driver
-        time.sleep(1)
+        time.sleep(5)  #增加等待时间，防止通知遮挡元素
 #学服中心
         driver.find_element_by_xpath("//span[contains(.,'学服中心')]").click()
         time.sleep(2)
@@ -45,7 +45,7 @@ class test_b_return_manage_affirm(unittest.TestCase):
         driver.find_element_by_id('customerInfo').click()
         driver.find_element_by_id('customerInfo').send_keys(student_phone)
         driver.find_element_by_xpath(
-            '//*[@id="hisroot"]/div/div/section/div/div/div/section/main/div/div/form/div/div[26]/button[1]').click()
+            '//*[@id="hisroot"]/div/div/section/div/div/div/section/main/div/div/form/div/div[21]/button[1]').click()   #查询按钮26改为21
         time.sleep(2)
         #获取订单id
         id=driver.find_element_by_xpath('//*[@id="hisroot"]/div/div/section/div/div/div/section/main/div/div/div/div/div/div/div/div/div/div/div[1]/div/table/tbody/tr[1]/td[3]').text

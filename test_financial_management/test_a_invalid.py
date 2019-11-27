@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 from lib.login import electronic_login
 from configFile.config_account_and_content import financial_management,student_centre
-from lib.add_student_allpy import add_student_allpy
+from lib.addpayment import addpayment
 from selenium import webdriver
 import unittest
 import time
@@ -30,11 +30,8 @@ class test_a_invalid(unittest.TestCase):
         paid=student_centre['paid']
 
         #d调取新增用户-报名
-        add_student_allpy(self, student_name, student_phone, student_class, assessment, paid)
+        addpayment(self, student_name, student_phone, student_class, assessment, paid)
 
-        # # 用户登录
-        # electronic_login(self)
-        # time.sleep(2)
 
         driver = self.driver
         time.sleep(8)

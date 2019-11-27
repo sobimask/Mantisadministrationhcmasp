@@ -1,6 +1,5 @@
 # -*- coding: utf-8 -*-
 from lib.login import electronic_login
-from configFile.config_account_and_content import student_centre
 from selenium import webdriver
 import unittest
 import time
@@ -19,10 +18,10 @@ class test_a_student_name(unittest.TestCase):
 
 #传入参数
         #新增学员电话号码
-        # f = open('D:\\Mantisadministrationhcmasp\\configFile\\student1.txt', 'r', encoding='utf-8')
-        # student_phone = f.read()
-        # f.close()
-        student_phone = student_centre['student']
+        f = open('D:\\Mantisadministrationhcmasp\\configFile\\student1.txt', 'r', encoding='utf-8')
+        student_phone = f.read()
+        f.close()        #修改查询电话号码
+
         time.sleep(2)
         driver = self.driver
         time.sleep(2)

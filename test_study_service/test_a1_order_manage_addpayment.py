@@ -38,8 +38,8 @@ class test_a_order_manage_addpayment(unittest.TestCase):
         addpayment(self, student_name, student_phone, student_class, assessment, paid)
 
         driver = self.driver
-        time.sleep(3)
-#学服中心
+        time.sleep(8)  #增加通知消失时间
+        #学服中心
         driver.find_element_by_xpath("//span[contains(.,'学服中心')]").click()
         time.sleep(1)
         #订单管理
@@ -48,7 +48,7 @@ class test_a_order_manage_addpayment(unittest.TestCase):
         #查询
         driver.find_element_by_id('customerInfo').click()
         driver.find_element_by_id('customerInfo').send_keys(student_phone)
-        driver.find_element_by_xpath('//*[@id="hisroot"]/div/div/section/div/div/div/section/main/div/div/form/div/div[26]/button[1]').click()
+        driver.find_element_by_xpath('//*[@id="hisroot"]/div/div/section/div/div/div/section/main/div/div/form/div/div[21]/button[1]').click()
         time.sleep(2)
 
         #支付单

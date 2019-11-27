@@ -1,57 +1,29 @@
 
 import unittest
-import HTMLTestRunner
 import time
-
-# 自动读取test_case文件夹下面所有以test开头的所有测试用例.
-
-listcases = "test_Configuration"
+import HTMLTestRunner
 
 
-def creatsuitel():
+# 循环添加用例
+
+pyname = ['test_configuration','test_product_manage','test_all','test_study_service',"test_teaching_operation",'test_financial_management']
+for i in range(len(pyname)):
+    listcases = pyname[i]
+    # 添加用例文件夹到discover方法中
+    discover = unittest.defaultTestLoader.discover(listcases, pattern='test*.py', top_level_dir = './')   #由于discover多次调用，top_level_dir参数要写成子目录的上级目录，默认为None
     testunit = unittest.TestSuite()
-
-    # discover 方法定义
-    discover = unittest.defaultTestLoader.discover(listcases, pattern='test*.py', top_level_dir=None)
-
+    #测试集在discover中循环添加
     for test_suite in discover:
+        #case在测试集中循环添加
         for test_case in test_suite:
             testunit.addTests(test_case)
-    print(testunit)
-    return testunit
+
+    now = time.strftime("%Y-%m-%d-%H_%M_%S", time.localtime(time.time()))
+    # 把当前时间加到测试报告文件名中
+    filename = "testResult/" + now + 'result.html'
+    fp = open(filename, 'wb')
+    runner = HTMLTestRunner.HTMLTestRunner(stream=fp, title=u'test result',
+                                           description=u'the status of test case execution')
+    runner.run(discover)
 
 
-
-# pyname = ["test_financial_management/",'test_product_manage','test_study_service']
-# for i in range(len(pyname)):
-#     listcases = pyname[i]
-#     #print('名字'+listcases)
-#     def creatsuitel():
-#         testunit = unittest.TestSuite()
-#
-#         # discover 方法定义
-#         discover = unittest.defaultTestLoader.discover(listcases, pattern='test*.py', top_level_dir=None)
-#
-#         for test_suite in discover:
-#             for test_case in test_suite:
-#                 testunit.addTests(test_case)
-#                 print(testunit)
-#         return testunit
-
-
-
-
-alltestnames = creatsuitel()
-
-# 取前面时间
-now = time.strftime("%Y-%m-%d-%H_%M_%S", time.localtime(time.time()))
-
-# 把当前时间加到测试报告文件名中
-filename = "testResult/" + now + listcases+'result.html'
-
-fp = open(filename, 'wb')
-
-runner = HTMLTestRunner.HTMLTestRunner(stream=fp, title=u'test result',
-                                       description=u'the status of test case execution')
-
-runner.run(alltestnames)

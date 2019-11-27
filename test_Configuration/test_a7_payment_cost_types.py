@@ -38,9 +38,9 @@ class test_a_payment_cost_types(unittest.TestCase):
         driver.find_element_by_xpath('/html/body/div[2]/div/div[2]/div/div[2]/div[3]/button[2]').click()
         time.sleep(2)
         #断言---查询
-        driver.find_element_by_xpath('//*[@id="hisroot"]/div/div/section/div/div/div/section/main/div/section/main/section/main/div/section/header/form/div/div[2]/div/div[2]/div/span/input').click()
-        driver.find_element_by_xpath('//*[@id="hisroot"]/div/div/section/div/div/div/section/main/div/section/main/section/main/div/section/header/form/div/div[2]/div/div[2]/div/span/input').send_keys(cost_types)
-        driver.find_element_by_xpath('//*[@id="hisroot"]/div/div/section/div/div/div/section/main/div/section/main/section/main/div/section/header/form/div/div[3]/button[1]').click()
+        driver.find_element_by_id('name').click()
+        driver.find_element_by_id('name').send_keys(cost_types)
+        driver.find_element_by_xpath("//button[contains(.,'查 询')]").click()
         time.sleep(2)
         masg=driver.find_element_by_xpath('//*[@id="hisroot"]/div/div/section/div/div/div/section/main/div/section/main/section/main/div/section/main/div/div/div/div/div/div/div/div[2]/div/table/tbody/tr/td[2]').text
         print(masg)

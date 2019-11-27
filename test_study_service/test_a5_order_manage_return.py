@@ -34,7 +34,7 @@ class test_a_order_manage_return(unittest.TestCase):
 
         #d调取新增用户-报名
         add_student_allpy(self, student_name, student_phone, student_class, assessment, paid)
-
+        time.sleep(5)
         driver = self.driver
         time.sleep(1)
 #学服中心
@@ -46,7 +46,7 @@ class test_a_order_manage_return(unittest.TestCase):
         driver.find_element_by_id('customerInfo').click()
         driver.find_element_by_id('customerInfo').send_keys(student_phone)
         driver.find_element_by_xpath(
-            '//*[@id="hisroot"]/div/div/section/div/div/div/section/main/div/div/form/div/div[26]/button[1]').click()
+            '//*[@id="hisroot"]/div/div/section/div/div/div/section/main/div/div/form/div/div[21]/button[1]').click()
         time.sleep(2)
         #进入子订单
         driver.find_element_by_xpath('//*[@id="hisroot"]/div/div/section/div/div/div/section/main/div/div/div/div/div/div/div/div/div/div/div[2]/div/div/table/tbody/tr[1]/td/span[2]').click()

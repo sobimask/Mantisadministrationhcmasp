@@ -60,7 +60,7 @@ class test_a_work_order_type(unittest.TestCase):
 #修改断言
         masg=driver.find_element_by_xpath('//*[@id="hisroot"]/div/div/section/div/div/div/section/main/div/section/main/div/div/div/div/div/div/div/div[2]/div/table/tbody/tr/td[3]').text
         print(masg)
-        self.assertEquals(masg,'修改备注信息')
+        self.assertEqual(masg,'修改备注信息')
         time.sleep(2)
 
     def tearDown(self):

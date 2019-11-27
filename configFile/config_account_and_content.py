@@ -4,7 +4,7 @@ from selenium import webdriver
 import datetime
 from lib.randomphone import randomphone
 #教务登录环境
-administration_url="https://tuosi03.n8.bjmantis.cn"
+administration_url="http://cshj3140.n4.bjmantis.cn"
 
 #获取明日时间
 today = datetime.date.today()
@@ -15,9 +15,9 @@ time.sleep(2)
 
 
 #角色
-name='qizhaojun'
+name='admin'
 #密码
-password="qwer12341"
+password="qwer1234"
 #=====================================================================学员中心
 #学员中心报名信息
 student_centre={
@@ -35,8 +35,8 @@ student_centre={
      'namem':'测试'+randomphone(),           #修改基本信息，学员名称
      'assessment':'100',     #报名应缴费用
      'paid':'100',            #实缴费用
-     'class1':'SD',    #报名班型
-     'class2':'能不能行',  #转班班型
+     'class1':'sd',    #报名班型
+     'class2':'一级建造师包过',  #转班班型
      'site':'北京—酒仙桥—将台5号院-螳螂科技', #增加收货地址
      'invoice':'100',                           #发票金额
      'invoice_content':'单位发票'               #发票内容
@@ -66,20 +66,20 @@ study_service={
 
 #=========================================================================基础配置
 configuration={
-     'name1':'编程语言a7'+randomphone(),           #项目配置一级项目名称
-     'name2':'pythona7'+randomphone(),             #项目配置--二级项目名称
-     'exam':'编程语言a7'+randomphone(),             #考期-修改--一级项目
-     'academy_name':'黄雀学院'+str(randomphone()),             #学院配置--新增学院名称
-     'macademy_name':'黄雀学院分院'+str(randomphone()),       #学院配置--修改学院名称
-     'service_provider':'螳螂科技7',       #服务商配置--新增服务商
-     'campus':'仓平校区'+str(randomphone()),                  #校区配置---校区名称
-     'C_project':'一级营养师',                  #报考项目--新增报考规则名称
-     'express':'急速快递',                         # 快递公司--新增快递公司名称
-     'express_describe':'急速快递,就是快',       # 快递公司--修改快递公司描述
-     'payment_way':'校园卡'+str(randomphone()),                      #支付配置--支付方式
-     'cost_types':'mmmn'+str(randomphone()),                         #支付配置--支付类型
-     'collection': '花旗银行'+str(randomphone()),                    # 支付配置--收款机构
-     'collection_remark': '花旗银行1',            # 支付配置--收款机构-修改备注
+     'name1':'测试一级项目'+randomphone(),           #项目配置一级项目名称
+     'name2':'测试二级项目'+randomphone(),             #项目配置--二级项目名称
+     'exam':'测试修改一级项目'+randomphone(),             #考期-修改--一级项目
+     'academy_name':'测试学院'+str(randomphone()),             #学院配置--新增学院名称
+     'macademy_name':'测试修改学院'+str(randomphone()),       #学院配置--修改学院名称
+     'service_provider':'测试服务商'+randomphone(),       #服务商配置--新增服务商
+     'campus':'测试校区'+str(randomphone()),                  #校区配置---校区名称
+     'C_project':'测试报考项目',                  #报考项目--新增报考规则名称
+     'express':'测试快递',                         # 快递公司--新增快递公司名称
+     'express_describe':'测试快递描述',       # 快递公司--修改快递公司描述
+     'payment_way':'测试支付方式'+str(randomphone()),                      #支付配置--支付方式
+     'cost_types':'支付类型'+str(randomphone()),                         #支付配置--支付类型
+     'collection': '测试银行'+str(randomphone()),                    # 支付配置--收款机构
+     'collection_remark': '测试银行'+randomphone(),            # 支付配置--收款机构-修改备注
      'work_order': '售后服务'+str(randomphone()),                    # 支付配置--工单类型-新增工单
 }
 #=======================================================================财务管理
@@ -114,6 +114,8 @@ teaching_operation={
           }
 #========================================================================产品管理
 product_manage={
+    'keci_name':'测试课次'+randomphone(),
+    'lubomokuai_name':'录播模块'+randomphone(),
     'curriculum_name':'课程管理'+str(randomphone()), #课程管理-新建课程-课程名称
     'mcurriculum_name': '修改课程管理12'+str(randomphone()),  # 课程管理-新建课程-课程名称
     'module_name': '模块名称'+str(randomphone()),  # 课程管理-新建课程-模块名称

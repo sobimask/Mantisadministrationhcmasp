@@ -19,12 +19,14 @@ class test_a_exam_date(unittest.TestCase):
 
 
         #一级项目名称
-        f =  open('D:\\Mantisadministrationhcmasp\\configFile\\name1.txt', 'r')
+        f =  open('D:\\Mantisadministrationhcmasp\\configFile\\name1.txt', 'r',encoding='utf-8')
         name1 =f.read()
         f.close()
 
+        f = open('D:\\Mantisadministrationhcmasp\\configFile\\name2.txt', 'r',encoding='utf-8')
+        name2 = f.read()
+        f.close()
 
-        print(name1)
         #查询考期配置
         exam=configuration['exam']
 
@@ -46,16 +48,19 @@ class test_a_exam_date(unittest.TestCase):
         #二级项目
         driver.find_element_by_xpath('/html/body/div[2]/div/div[2]/div/div[2]/div[2]/form/div[2]/div/div/div[2]/div/span/div/div/div').click()
         time.sleep(1)
-        driver.find_element_by_xpath('/html/body/div[4]/div/div/div/ul').find_element_by_class_name('ant-select-dropdown-menu-item').click()
+        driver.find_element_by_xpath('//li[text()="' + name2 + '"]').click()
         time.sleep(1)
         #考期
         driver.find_element_by_xpath('//*[@id="examDate"]/div/input').click()
         time.sleep(1)
-        driver.find_element_by_xpath('/html/body/div[5]/div/div/div/div/div/div/div[2]/div/div[2]/table/tbody/tr[2]/td[1]').click()
+        driver.find_element_by_xpath('/html/body/div[5]/div/div/div/div/div/div/div[2]/div/div[2]/table/tbody/tr[4]/td[3]').click()
         time.sleep(1)
+
         #保存
-        driver.find_element_by_xpath('/html/body/div[2]/div/div[2]/div/div[2]/div[3]/button[2]').click()
-        time.sleep(2)
+        driver.find_element_by_xpath("//button[contains(.,'保 存')]").click()
+        time.sleep(5)
+
+
 #
     def tearDown(self):
         self.driver.quit()
