@@ -4,7 +4,7 @@ from selenium import webdriver
 import datetime
 from lib.randomphone import randomphone
 #教务登录环境
-administration_url="http://cshj3140.n4.bjmantis.cn"
+administration_url=''
 
 #获取明日时间
 today = datetime.date.today()
