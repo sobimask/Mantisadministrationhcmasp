@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 from lib.login import electronic_login
-from lib.add_student_allpy import add_student_allpy
+from lib.addpayment import addpayment
 from configFile.config_account_and_content import study_service,student_centre
 from selenium import webdriver
 import unittest
@@ -22,25 +22,28 @@ class test_a_order_manage_transfer(unittest.TestCase):
         student_phone=study_service['transfer']
         #新增学员姓名
         student_name=student_centre['name']
-        #班型选择
-        student_class=student_centre['class1']
         #报名应缴费用
         assessment=student_centre['assessment']
         #报名实缴费用
         paid=student_centre['paid']
         #原班型退费金额
         transfer_return=student_centre['transfer_return']
-        #转班班型
-        student_class2 = student_centre['class2']
         # 转班应缴费用
         assessment2 = student_centre['assessment2']
         #转班 实缴费用
         paid2 = student_centre['paid2']
         #转班发票号
         fapiao = student_centre['fapiao']
+        f = open('D:\\Mantisadministrationhcmasp\\configFile\\commodity_name1.txt', 'r', encoding='utf-8')
+        commodity_name1 = f.read()
+        f.close()
+
+        f = open('D:\\Mantisadministrationhcmasp\\configFile\\kaoqi.txt', 'r', encoding='utf-8')
+        kaoqi = f.read()
+        f.close()
 
         #d调取新增用户-报名
-        add_student_allpy(self, student_name, student_phone, student_class, assessment, paid)
+        addpayment(self, student_name, student_phone, assessment, paid)
         time.sleep(5)
         driver = self.driver
         time.sleep(1)
@@ -74,7 +77,7 @@ class test_a_order_manage_transfer(unittest.TestCase):
         time.sleep(1)
         #班型
         driver.find_element_by_xpath('/html/body/div[10]/div/div[2]/div/div[2]/div[2]/div/div/div/div/div[1]/div/div[3]/div/div[2]/div/span/input').click()
-        driver.find_element_by_xpath('/html/body/div[10]/div/div[2]/div/div[2]/div[2]/div/div/div/div/div[1]/div/div[3]/div/div[2]/div/span/input').send_keys(student_class2)
+        driver.find_element_by_xpath('/html/body/div[10]/div/div[2]/div/div[2]/div[2]/div/div/div/div/div[1]/div/div[3]/div/div[2]/div/span/input').send_keys(commodity_name1)
         time.sleep(1)
         #
         driver.find_element_by_xpath('/html/body/div[10]/div/div[2]/div/div[2]/div[2]/div/div/div/div/div[2]/div/table/tbody/tr/td[1]/span/label/span/input').click()
@@ -85,14 +88,14 @@ class test_a_order_manage_transfer(unittest.TestCase):
 
         #考期
         driver.find_element_by_xpath('//td[6]/div/div/div').click()
-        driver.find_element_by_xpath('//div/div/div/ul/li').click()
+        driver.find_element_by_xpath("//li[contains(.,'"+kaoqi+"')]").click()
         time.sleep(2)
         #应缴费用
-        driver.find_element_by_xpath('/html/body/div[3]/div/div[2]/div/div[2]/div[2]/section/main/div/div/div/div[1]/div[2]/div/div/div/div/div/div/table/tbody/tr/td[7]/div/div[2]/input').click()
         time.sleep(1)
         driver.find_element_by_xpath('/html/body/div[9]/div/div[2]/div/div[2]/div[2]/section/main/div/div/div/div[1]/div[2]/div/div/div/div/div/div/table/tbody/tr/td[7]/div/div[2]/input').send_keys(assessment2)
         #选择补发形式
         driver.find_element_by_xpath('//span[4]/div/div/div').click()
+
         time.sleep(1)
         driver.find_element_by_xpath("//li[contains(.,'现场发放')]").click()
         time.sleep(1)
@@ -108,9 +111,6 @@ class test_a_order_manage_transfer(unittest.TestCase):
         #小票号
         driver.find_element_by_xpath('/html/body/div[9]/div/div[2]/div/div[2]/div[2]/section/main/div/div/div/form/div[3]/div/div[3]/div/div[2]/div/span/input').click()
         driver.find_element_by_xpath('/html/body/div[9]/div/div[2]/div/div[2]/div[2]/section/main/div/div/div/form/div[3]/div/div[3]/div/div[2]/div/span/input').send_keys(fapiao)
-        # #分期数
-        # driver.find_element_by_xpath('/html/body/div[9]/div/div[2]/div/div[2]/div[2]/section/main/div/div/div/form/div[3]/div/div[4]/div/div[2]/div/span/div/div/div').click()
-        # driver.find_element_by_xpath('/html/body/div[12]/div/div/div/ul').find_element_by_class_name('ant-select-dropdown-menu-item').click()
         #支付金额
         driver.find_element_by_xpath('/html/body/div[9]/div/div[2]/div/div[2]/div[2]/section/main/div/div/div/form/div[3]/div/div[5]/div/div[2]/div/span/div/div[2]/input').click()
         driver.find_element_by_xpath('/html/body/div[9]/div/div[2]/div/div[2]/div[2]/section/main/div/div/div/form/div[3]/div/div[5]/div/div[2]/div/span/div/div[2]/input').send_keys(paid2)

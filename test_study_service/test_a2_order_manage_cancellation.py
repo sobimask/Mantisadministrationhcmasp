@@ -31,7 +31,7 @@ class test_a_order_manage_cancellation(unittest.TestCase):
 
 
         #d调取新增用户-报名
-        addpayment(self, student_name, student_phone, student_class, assessment, paid)
+        addpayment(self, student_name, student_phone, assessment, paid)
         time.sleep(5)
         driver = self.driver
         time.sleep(1)

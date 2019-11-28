@@ -73,7 +73,7 @@ class test_a1_term_plan(unittest.TestCase):
         driver.find_element_by_xpath('/html/body/div[2]/div/div[2]/div/div[2]/div[2]/form/div[3]/div[2]/div/span/input').send_keys(mplan_name)
         #保存
         driver.find_element_by_xpath('/html/body/div[2]/div/div[2]/div/div[2]/div[3]/button[2]').click()
-        time.sleep(2)
+        time.sleep(4)
 
 #修改--断言
         #查询

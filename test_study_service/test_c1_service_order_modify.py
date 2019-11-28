@@ -25,7 +25,7 @@ class test_c_service_order_modify(unittest.TestCase):
         driver = self.driver
         time.sleep(1)
     # 学服中心
-        driver.find_element_by_xpath("//span[contains(.,'客服单管理')]").click()
+        driver.find_element_by_xpath("//span[contains(.,'学服中心')]").click()
         time.sleep(1)
         driver.find_element_by_link_text('订单管理').click()
         time.sleep(2)
@@ -45,7 +45,7 @@ class test_c_service_order_modify(unittest.TestCase):
         driver.find_element_by_id('mspCustomerId').click()
         driver.find_element_by_id('mspCustomerId').send_keys(id)
         driver.find_element_by_xpath(
-            '//*[@id="hisroot"]/div/div/section/div/div/div/section/main/div/div/form/div/div[26]/button[1]').click()
+            '//*[@id="hisroot"]/div/div/section/div/div/div/section/main/div/section/header/form/div[4]/div[2]/button[1]').click()
         time.sleep(1)
         #修改
         driver.find_element_by_xpath('//*[@id="hisroot"]/div/div/section/div/div/div/section/main/div/section/main/div/div/div/div/div/div/div/div/div[2]/div/div/table/tbody/tr/td/span/span[1]/a').click()

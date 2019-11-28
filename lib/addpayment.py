@@ -3,9 +3,16 @@ import unittest
 from configFile.config_account_and_content import tomorrowr
 import time
 
-def addpayment(self,student_name,student_phone,student_class,assessment,paid):
+def addpayment(self,student_name, student_phone, assessment, paid):
 
     u"""增加支付单-报名"""
+    f = open('D:\\Mantisadministrationhcmasp\\configFile\\commodity_name.txt', 'r',encoding='utf-8')
+    commodity_name = f.read()
+    f.close()
+
+    f = open('D:\\Mantisadministrationhcmasp\\configFile\\kaoqi.txt', 'r', encoding='utf-8')
+    kaoqi = f.read()
+    f.close()
 
     time.sleep(2)
     driver = self.driver
@@ -65,7 +72,7 @@ def addpayment(self,student_name,student_phone,student_class,assessment,paid):
     time.sleep(2)
     #报名
     driver.find_element_by_xpath('//*[@id="hisroot"]/div/div/section/div/div/div/section/main/div/div/div/section/section/main/section/header/div/div[2]/button[2]').click()
-    time.sleep(2)
+    time.sleep(3)
     #性别
     driver.find_element_by_xpath('/html/body/div[9]/div/div[2]/div/div[2]/div[2]/section/main/div/div/div/form/div[1]/div[2]/div/div[2]/div/span/div/label[1]').click()
     time.sleep(1)
@@ -94,29 +101,30 @@ def addpayment(self,student_name,student_phone,student_class,assessment,paid):
     time.sleep(1)
     driver.find_element_by_xpath('/html/body/div[10]/div/div/div/ul').find_element_by_class_name('ant-select-dropdown-menu-item').click()
     #增加班型
-    driver.find_element_by_xpath('/html/body/div[9]/div/div[2]/div/div[2]/div[2]/section/main/div/div/div/div[1]/div[1]/div/div[2]/div/button').click()
+    driver.find_element_by_xpath("//button[contains(.,'增加班型')]").click()
     time.sleep(3)
-    #班型
-    driver.find_element_by_xpath('/html/body/div[11]/div/div[2]/div/div[2]/div[2]/div/div/div/div/div[1]/div/div[3]/div/div[2]/div/span/input').click()
-    driver.find_element_by_xpath('/html/body/div[11]/div/div[2]/div/div[2]/div[2]/div/div/div/div/div[2]/div/table/tbody/tr/td[1]/span/label/span/input').click()
+    #选择班型名称
+    driver.find_element_by_xpath('/html/body/div[11]/div/div[2]/div/div[2]/div[2]/div/div/div/div/div[1]/div/div[3]/div/div[2]/div/span/input').send_keys(commodity_name)
+    time.sleep(1)
+    driver.find_element_by_xpath('//span/label/span/input').click()
     time.sleep(1)
     #确定
     driver.find_element_by_xpath('/html/body/div[11]/div/div[2]/div/div[2]/div[3]/button[2]').click()
     time.sleep(3)
-    #考期正确操作
-    driver.find_element_by_xpath('/html/body/div[9]/div/div[2]/div/div[2]/div[2]/section/main/div/div/div/div[1]/div[2]/div/div/div/div/div/div/table/tbody/tr/td[6]/div/div/div').click()
+    #考期
+    driver.find_element_by_xpath('//td[6]/div/div/div').click()
     time.sleep(1)
-    driver.find_element_by_xpath('/html/body/div[12]/div/div/div/ul').find_element_by_class_name('ant-select-dropdown-menu-item').click()
+    driver.find_element_by_xpath("//li[contains(.,'" + kaoqi + "')]").click()
     time.sleep(1)
     #金额
     driver.find_element_by_xpath('/html/body/div[9]/div/div[2]/div/div[2]/div[2]/section/main/div/div/div/div[1]/div[2]/div/div/div/div/div/div/table/tbody/tr/td[8]/div/div[2]/input').send_keys(assessment)
     time.sleep(1)
     #补发形式
-    driver.find_element_by_xpath('/html/body/div[9]/div/div[2]/div/div[2]/div[2]/section/main/div/div/div/div[2]/span[4]/div/div/div').click()
+    driver.find_element_by_xpath('//span[4]/div/div/div').click()
     time.sleep(1)
-    driver.find_element_by_xpath('/html/body/div[13]/div/div/div/ul').find_element_by_class_name('ant-select-dropdown-menu-item').click()
+    driver.find_element_by_xpath("//li[contains(.,'现场发放')]").click()
     #下一步
-    driver.find_element_by_xpath('/html/body/div[9]/div/div[2]/div/div[2]/div[2]/section/main/div/div/div/div[3]/button[2]').click()
+    driver.find_element_by_xpath("//button[contains(.,'下一步')]").click()
     time.sleep(3)
  #支付信息
     #费用类型
@@ -147,10 +155,13 @@ def addpayment(self,student_name,student_phone,student_class,assessment,paid):
         '/html/body/div[9]/div/div[2]/div/div[2]/div[2]/section/main/div/div/div/div/button[2]').click()
         time.sleep(2)
 
+
+
     except:
         driver.find_element_by_xpath(
             '/html/body/div[9]/div/div[2]/div/div[2]/div[2]/section/main/div/div/div/div/button[2]').click()
         time.sleep(2)
+
 
 
 if __name__ == "__main__":

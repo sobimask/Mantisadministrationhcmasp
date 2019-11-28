@@ -23,7 +23,7 @@ class test_a5_recorded_broadcast(unittest.TestCase):
 
         f = open('D:\\Mantisadministrationhcmasp\\configFile\\name2.txt', 'r', encoding='utf-8')
         name2 = f.read()
-
+        f.close()
 
         f = open('D:\\Mantisadministrationhcmasp\\configFile\\kaoqi.txt', 'r', encoding='utf-8')
         kaoqi = f.read()
@@ -31,6 +31,7 @@ class test_a5_recorded_broadcast(unittest.TestCase):
 
         f = open('D:\\Mantisadministrationhcmasp\\configFile\\recorded_name.txt', 'r', encoding='utf-8')
         recorded_name = f.read()
+        f.close()
         #修改课次
 
         recorded_broadcast=teaching_operation['recorded_broadcast']
@@ -67,9 +68,9 @@ class test_a5_recorded_broadcast(unittest.TestCase):
         driver.find_element_by_xpath("//span[@id='startDay']/div/input").click()
         time.sleep(1)
         driver.find_element_by_link_text('今天').click()
-        time.sleep(1)
+        time.sleep(3)
         #班别
-        driver.find_element_by_xpath("//div[@id='scheduleTypeCode']/div/div/div)[3]").click()
+        driver.find_element_by_xpath("(//div[@id='scheduleTypeCode']/div/div/div)[3]").click()
         time.sleep(1)
         driver.find_element_by_xpath("//li[contains(.,'周末班')]").click()
         time.sleep(1)
@@ -79,9 +80,8 @@ class test_a5_recorded_broadcast(unittest.TestCase):
         time.sleep(1)
         #排课
         driver.find_element_by_xpath('//*[@id="scheduleDays"]/span/label[1]/span[1]/input').click()
-        time.sleep(1)
-        driver.find_element_by_xpath('//span/label/span/input').click()
-        time.sleep(1)
+        time.sleep(2)
+
         #预排课
         driver.find_element_by_xpath("//button[contains(.,'预排课')]").click()
         time.sleep(2)
@@ -94,7 +94,7 @@ class test_a5_recorded_broadcast(unittest.TestCase):
         driver.find_element_by_xpath("//div[@id='firstProductId']/div/div/div").click()
         time.sleep(1)
         driver.find_element_by_xpath("//li[contains(.,'" + name1 + "')]").click()
-        time.sleep()
+        time.sleep(1)
 
         #查询
         driver.find_element_by_xpath("//button[contains(.,'查 询')]").click()

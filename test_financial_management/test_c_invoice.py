@@ -21,8 +21,6 @@ class test_c_invoice(unittest.TestCase):
         student_phone=financial_management['invoice']
         #新增学员姓名
         student_name=student_centre['name']
-        #班型选择
-        student_class=student_centre['class1']
         #应缴费用
         assessment=student_centre['assessment']
         #实缴费用
@@ -34,7 +32,7 @@ class test_c_invoice(unittest.TestCase):
 
 
         #d调取新增用户-报名
-        addpayment(self, student_name, student_phone, student_class, assessment, paid)
+        addpayment(self, student_name, student_phone, assessment, paid)
 
         driver = self.driver
         time.sleep(1)

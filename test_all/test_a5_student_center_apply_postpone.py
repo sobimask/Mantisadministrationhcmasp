@@ -2,7 +2,7 @@
 from configFile.config_account_and_content import student_centre
 from lib.login import electronic_login
 from selenium import webdriver
-from lib.add_student_allpy import add_student_allpy
+from lib.addpayment import addpayment
 import unittest
 import time
 
@@ -35,7 +35,7 @@ class test_a_student_center_apply_postpone(unittest.TestCase):
         postponetime=student_centre['time']
 
         #调取新增用户-报名
-        add_student_allpy(self, student_name, student_phone, student_class, assessment, paid)
+        addpayment(self, student_name, student_phone, assessment, paid)
 
         driver = self.driver
         time.sleep(1)

@@ -42,7 +42,8 @@ class test_b_student_center_tsence(unittest.TestCase):
         driver.find_element_by_link_text('报名').click()
         time.sleep(2)
 #现场发发放
-        driver.find_element_by_xpath('//*[@id="reservation"]/div/div/ul/li/div[3]/div/div[2]/div/div[2]/table/tbody/tr[2]/td[2]/span/button[2]').click()
+        driver.find_element_by_xpath("//button[contains(.,'现场发放')]").click()
+        #driver.find_element_by_xpath('//*[@id="reservation"]/div/div/ul/li/div[3]/div/div[2]/div/div[2]/table/tbody/tr[3]/td[2]/span/button[2]').click()
         time.sleep(2)
      #选择教材
         textbook=driver.find_element_by_xpath('//*[@id="bookes"]/label[1]/span[2]').text

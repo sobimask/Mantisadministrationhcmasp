@@ -1,10 +1,8 @@
 # -*- coding: utf-8 -*-
 from lib.login import electronic_login
-from configFile.config_account_and_content import study_service
 from selenium import webdriver
 import unittest
 import time
-import os
 
 class test_b_textbook_scene(unittest.TestCase):
     def setUp(self):
@@ -64,7 +62,7 @@ class test_b_textbook_scene(unittest.TestCase):
 
 
     def tearDown(self):
-        os.remove('D:\\Mantisadministrationhcmasp\\configFile\\student2.txt')
+
         self.driver.quit()
 
 

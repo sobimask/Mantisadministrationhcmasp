@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 from lib.login import electronic_login
-from lib.add_student_allpy import add_student_allpy
+from lib.addpayment import addpayment
 from configFile.config_account_and_content import study_service,student_centre
 from selenium import webdriver
 import unittest
@@ -21,8 +21,6 @@ class test_a_order_manage_modify(unittest.TestCase):
         student_phone=study_service['modify']
         #新增学员姓名
         student_name=student_centre['name']
-        #班型选择
-        student_class=student_centre['class1']
         #应缴费用
         assessment=student_centre['assessment']
         #实缴费用
@@ -31,7 +29,7 @@ class test_a_order_manage_modify(unittest.TestCase):
         modify_remark=study_service['modify_remark']
 
         #d调取新增用户-报名
-        add_student_allpy(self, student_name, student_phone, student_class, assessment, paid)
+        addpayment(self, student_name, student_phone, assessment, paid)
         time.sleep(5)
         driver = self.driver
         time.sleep(1)

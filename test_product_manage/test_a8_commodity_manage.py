@@ -24,8 +24,11 @@ class test_a8_commodity_manage(unittest.TestCase):
         commodity_minimum_price=product_manage['commodity_minimum_price']
         # 商品出售价格
         commodity_sell_price = product_manage['commodity_sell_price']
-        #修改班型名称
-        mcommodity_name = product_manage['mcommodity_name']
+
+
+        with open('D:\\Mantisadministrationhcmasp\\configFile\\commodity_name.txt', 'w',encoding='utf-8') as f:
+            f.write(commodity_name)
+            f.close()
 
         f = open('D:\\Mantisadministrationhcmasp\\configFile\\name1.txt', 'r', encoding='utf-8')
         name1 = f.read()

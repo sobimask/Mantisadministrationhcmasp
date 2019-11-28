@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 from lib.login import electronic_login
 from configFile.config_account_and_content import financial_management,student_centre,study_service
-from lib.add_student_allpy import add_student_allpy
+from lib.addpayment import addpayment
 from selenium import webdriver
 import unittest
 import time
@@ -22,8 +22,6 @@ class test_b_return_manage_affirm(unittest.TestCase):
         student_phone=financial_management['return']
         #新增学员姓名
         student_name=student_centre['name']
-        #班型选择
-        student_class=student_centre['class1']
         #应缴费用
         assessment=student_centre['assessment']
         #实缴费用
@@ -32,7 +30,7 @@ class test_b_return_manage_affirm(unittest.TestCase):
         return_money=study_service['return_money']
 
         #d调取新增用户-报名
-        add_student_allpy(self, student_name, student_phone, student_class, assessment, paid)
+        addpayment(self, student_name, student_phone, assessment, paid)
 
         driver = self.driver
         time.sleep(5)  #增加等待时间，防止通知遮挡元素
@@ -116,7 +114,7 @@ class test_b_return_manage_affirm(unittest.TestCase):
 #断言 --状态
         masg=driver.find_element_by_xpath('//*[@id="hisroot"]/div/div/section/div/div/div/section/main/div/section/main/div/div/div/div/div/div/div/div/div[2]/div/div/table/tbody/tr/td[1]/span[2]').text
         print(masg)
-        self.assertEquals(masg,"已打款")
+        self.assertEqual(masg,"已打款")
 
     def tearDown(self):
         self.driver.quit()

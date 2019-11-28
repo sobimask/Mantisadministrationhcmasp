@@ -6,7 +6,7 @@ import HTMLTestRunner
 
 # 循环添加用例
 
-pyname = ['test_configuration','test_product_manage','test_all','test_study_service',"test_teaching_operation",'test_financial_management']
+pyname = ['test_all','test_study_service',"test_teaching_operation",'test_financial_management']
 for i in range(len(pyname)):
     listcases = pyname[i]
     # 添加用例文件夹到discover方法中

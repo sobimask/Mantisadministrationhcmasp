@@ -18,8 +18,16 @@ class test_a_student_center_allpy(unittest.TestCase):
 
 #传入参数
         #新增学员电话号码
-        f=open('D:\\Mantisadministrationhcmasp\\configFile\\student.txt', 'r')
+        f=open('D:\\Mantisadministrationhcmasp\\configFile\\student.txt', 'r',encoding='utf-8')
         student_phone = f.read()
+        f.close()
+
+        f = open('D:\\Mantisadministrationhcmasp\\configFile\\commodity_name.txt', 'r',encoding='utf-8')
+        class_type = f.read()
+        f.close()
+
+        f = open('D:\\Mantisadministrationhcmasp\\configFile\\kaoqi.txt', 'r', encoding='utf-8')
+        kaoqi = f.read()
         f.close()
 
         #应缴费用
@@ -27,7 +35,6 @@ class test_a_student_center_allpy(unittest.TestCase):
         #实缴费用
         paid=student_centre['paid']
         #报名班型
-        class_name=student_centre['class1']
 
 
         # time.sleep(2)
@@ -84,39 +91,30 @@ class test_a_student_center_allpy(unittest.TestCase):
         driver.find_element_by_xpath('/html/body/div[3]/div/div/div/ul').find_element_by_class_name(
             'ant-select-dropdown-menu-item').click()
         # 增加班型
-        driver.find_element_by_xpath(
-            '/html/body/div[2]/div/div[2]/div/div[2]/div[2]/section/main/div/div/div/div[1]/div[1]/div/div[2]/div/button').click()
-        time.sleep(2)
-        # 班型
-        # driver.find_element_by_xpath(
-        #     '/html/body/div[11]/div/div[2]/div/div[2]/div[2]/div/div/div/div/div[1]/div/div[3]/div/div[2]/div/span/input').click()
-        driver.find_element_by_css_selector('.ant-table-row:nth-child(1) .ant-checkbox-input').click()
-        # driver.find_element_by_xpath('/html/body/div[4]/div/div[2]/div/div[2]/div[2]/div/div/div/div/div[1]/div/div[3]/div/div[2]/div/span/input').click()
-        # driver.find_element_by_xpath('/html/body/div[4]/div/div[2]/div/div[2]/div[2]/div/div/div/div/div[1]/div/div[3]/div/div[2]/div/span/input').send_keys(class_name)
-
+        driver.find_element_by_xpath("//button[contains(.,'增加班型')]").click()
+        time.sleep(3)
+        driver.find_element_by_xpath('//div/span/input').send_keys(class_type)
+        time.sleep(1)
+        driver.find_element_by_xpath('//span/label/span/input').click()
         time.sleep(1)
         # 确定
-        driver.find_element_by_xpath('//div[2]/div[3]/button[2]').click()
+        driver.find_element_by_xpath("//button[contains(.,'确 定')]").click()
         time.sleep(3)
-        # 考期
-        driver.find_element_by_xpath('/html/body/div[2]/div/div[2]/div/div[2]/div[2]/section/main/div/div/div/div[1]/div[2]/div/div/div/div/div/div/table/tbody/tr/td[6]/div/div/div').click()
+        # 考期正确操作
+        driver.find_element_by_xpath('//td[6]/div/div/div').click()
         time.sleep(1)
-        driver.find_element_by_xpath('/html/body/div[5]/div/div/div/ul').find_element_by_class_name(
-            'ant-select-dropdown-menu-item').click()
-        # 应缴费用
-        driver.find_element_by_xpath('/html/body/div[2]/div/div[2]/div/div[2]/div[2]/section/main/div/div/div/div[1]/div[2]/div/div/div/div/div/div/table/tbody/tr/td[8]/div/div[2]/input').send_keys(assessment)
-
+        driver.find_element_by_xpath("//li[contains(.,'"+kaoqi+"')]").click()
         time.sleep(1)
-        #快递发放
-        driver.find_element_by_xpath(
-            '/html/body/div[2]/div/div[2]/div/div[2]/div[2]/section/main/div/div/div/div[2]/span[4]/div/div/div').click()
+        # 金额
+        driver.find_element_by_xpath('//div[2]/input').send_keys(assessment)
         time.sleep(1)
-        driver.find_element_by_xpath('/html/body/div[6]/div/div/div/ul').find_element_by_class_name(
-            'ant-select-dropdown-menu-item').click()
+        # 补发形式
+        driver.find_element_by_xpath('//span[4]/div/div/div').click()
+        time.sleep(1)
+        driver.find_element_by_xpath("//li[contains(.,'现场发放')]").click()
         # 下一步
-        driver.find_element_by_xpath(
-            '/html/body/div[2]/div/div[2]/div/div[2]/div[2]/section/main/div/div/div/div[3]/button[2]').click()
-        time.sleep(2)
+        driver.find_element_by_xpath("//button[contains(.,'下一步')]").click()
+        time.sleep(3)
         # 支付信息
         # 费用类型
         driver.find_element_by_xpath(

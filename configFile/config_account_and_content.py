@@ -4,7 +4,7 @@ from selenium import webdriver
 import datetime
 from lib.randomphone import randomphone
 #教务登录环境
-administration_url=''
+administration_url=""
 
 #获取明日时间
 today = datetime.date.today()
@@ -29,14 +29,13 @@ student_centre={
      'transfer':'1331235'+str(randomphone()),                  #报名-转班
      'transfer_return':'1',                      #报名-转班-原班型退费
      'assessment2': '100',                      #转班应缴费用
+     'paid':'100',
      'paid2':'1',                                 #转班实缴费用
      'student':'1331239'+randomphone(),# 新增学员电话     报名电话        保持和新增电话一直
      'name':'测试'+randomphone(),            #用户姓名
      'namem':'测试'+randomphone(),           #修改基本信息，学员名称
      'assessment':'100',     #报名应缴费用
      'paid':'100',            #实缴费用
-     'class1':'sd',    #报名班型
-     'class2':'一级建造师包过',  #转班班型
      'site':'北京—酒仙桥—将台5号院-螳螂科技', #增加收货地址
      'invoice':'100',                           #发票金额
      'invoice_content':'单位发票'               #发票内容
@@ -44,7 +43,7 @@ student_centre={
 #========================================================================学服中心
 study_service={
      'addpayment': '1331235'+str(randomphone()),  # 订单管理-增加支付单
-     'assessment': '2999',  # 增加支付单--报名应缴费用
+     'assessment': '100',  # 增加支付单--报名应缴费用
      'paid': '1',  # 增加支付单--实缴费用
      'repair': '1',  # 增加支付单--支付单补缴费用
    #------------------------------------------------------------
@@ -97,7 +96,6 @@ financial_management={
 teaching_operation={
            'plan_name':'a计划'+str(randomphone()),     #新增- 计划名称
            'mplan_name': 'b计划'+str(randomphone()),   #修改- 计划名称
-
            'cpno_manage': '修改课次'+str(randomphone()),  # 课号管理——新增课次
 
            'recorded_broadcast': '录播课号'+str(randomphone()),  # 录播课号——修改课次
@@ -107,8 +105,7 @@ teaching_operation={
 
            'recorded_broadcast': '录播课号'+str(randomphone()),  # 课号管理——修改课次
 
-           'present': '可不可以',  # 赠送服务--已有商品选择
-           'name': 'qizhaojun',            # 赠送服务--已有商品选择
+
 
 
           }
@@ -137,7 +134,7 @@ product_manage={
     'class_type': '快速提升班'+str(randomphone()),  # 班型管理-新增班型名称
     'mclass_type': '快速提升班'+str(randomphone()),  # 班型管理-修改版型名称
 
-    'commodity_name': '班型'+str(randomphone()),  # 商品管理-新增班型名称
+    'commodity_name': '商品'+str(randomphone()),  # 商品管理-新增班型名称
     'commodity_minimum_price': '1',  # 商品管理-上架商品最低价格
     'commodity_sell_price': '100',  # 商品管理-上架商品出售价格
     'mcommodity_name': '班型'+str(randomphone()),  #      商品管理-修改商品名称

@@ -1,7 +1,5 @@
 # -*- coding: utf-8 -*-
 from lib.login import electronic_login
-import os
-from configFile.config_account_and_content import student_centre
 from selenium import webdriver
 import unittest
 import time
@@ -66,7 +64,7 @@ class test_c_service_order_dispose(unittest.TestCase):
         self.assertEqual(masg,'已处理')
 
     def tearDown(self):
-        os.remove('D:\\Mantisadministrationhcmasp\\configFile\\student.txt')
+
         self.driver.quit()
 
 

@@ -23,19 +23,15 @@ class test_a_order_manage_addpayment(unittest.TestCase):
         student_phone=study_service['addpayment']
         #新增学员姓名
         student_name=student_centre['name']
-        #班型选择
-        student_class=student_centre['class1']
         #应缴费用
         assessment=study_service['assessment']
         #实缴费用
         paid=study_service['paid']
-        #修改支付信息-备注信息内容
-        modify_remark=study_service['modify_remark']
         #支付单补缴金额
         repair=study_service['repair']
 
         #d调取新增用户-报名
-        addpayment(self, student_name, student_phone, student_class, assessment, paid)
+        addpayment(self, student_name, student_phone, assessment, paid)
 
         driver = self.driver
         time.sleep(8)  #增加通知消失时间

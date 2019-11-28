@@ -64,7 +64,7 @@ class test_a_student_infrom(unittest.TestCase):
         time.sleep(1)
         masg=driver.find_element_by_xpath('//*[@id="hisroot"]/div/div/section/div/div/div/section/main/div/section/main/div/div/div/div/div/div/div/div[2]/div/table/tbody/tr/td[4]').text
         print(masg)
-        self.assertEquals(masg,commodity_infrom)
+        self.assertEqual(masg,commodity_infrom)
 
 
     def tearDown(self):

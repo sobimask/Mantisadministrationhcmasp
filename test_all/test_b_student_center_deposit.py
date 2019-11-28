@@ -1,5 +1,4 @@
 # -*- coding: utf-8 -*-
-from configFile.config_account_and_content import student_centre
 from lib.login import electronic_login
 from selenium import webdriver
 import unittest

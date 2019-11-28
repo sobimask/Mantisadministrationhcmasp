@@ -45,7 +45,7 @@ class test_a_student_name(unittest.TestCase):
 
 
     def tearDown(self):
-        os.remove('D:\\Mantisadministrationhcmasp\\configFile\\student1.txt')
+
         self.driver.quit()
 
 
