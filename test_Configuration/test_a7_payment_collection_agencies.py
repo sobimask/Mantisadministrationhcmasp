@@ -49,23 +49,6 @@ class test_a_express_company(unittest.TestCase):
         print(masg)
         self.assertEqual(masg,collection)
         time.sleep(2)
-#修改
-        driver.find_element_by_xpath('//*[@id="hisroot"]/div/div/section/div/div/div/section/main/div/section/main/section/main/div/div/div/div/div/div/div/div/div/div[2]/div/table/tbody/tr/td[3]/span/span[1]/a').click()
-        time.sleep(2)
-        #修改描述
-        driver.find_element_by_xpath('/html/body/div[2]/div/div[2]/div/div[2]/div[2]/form/div[2]/div/div/div[2]/div/span/textarea').clear()
-        driver.find_element_by_xpath('/html/body/div[2]/div/div[2]/div/div[2]/div[2]/form/div[2]/div/div/div[2]/div/span/textarea').send_keys(collection_remark)
-        #保存
-        driver.find_element_by_xpath('/html/body/div[2]/div/div[2]/div/div[2]/div[3]/button[2]').click()
-        time.sleep(2)
-#修改断言
-        masg=driver.find_element_by_xpath('//*[@id="hisroot"]/div/div/section/div/div/div/section/main/div/section/main/section/main/div/div/div/div/div/div/div/div/div/div[2]/div/table/tbody/tr/td[2]').text
-        print(masg)
-        self.assertEqual(masg,collection_remark)
-        time.sleep(1)
-
-    def tearDown(self):
-        self.driver.quit()
 
 
 

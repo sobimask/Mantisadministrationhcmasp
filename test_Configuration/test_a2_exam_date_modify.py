@@ -73,7 +73,6 @@ class test_a2_exam_date_modify(unittest.TestCase):
 
 
     def tearDown(self):
-        #os.remove('D:\\Mantisadministrationhcmasp\\configFile\\name1.txt')
 
         self.driver.quit()
 

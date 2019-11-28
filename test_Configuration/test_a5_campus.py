@@ -44,10 +44,9 @@ class test_a_campus(unittest.TestCase):
         #保存
         driver.find_element_by_xpath('/html/body/div[2]/div/div[2]/div/div[2]/div[3]/button[2]').click()
         time.sleep(1)
-#断言
-
+        #断言
         driver.find_element_by_xpath('//*[@id="name"]').send_keys(campus)
-        time.sleep(1)
+        time.sleep(2)
         #查询
         driver.find_element_by_xpath("//button[contains(.,'查 询')]").click()
         time.sleep(2)
