@@ -75,26 +75,26 @@ class test_a_campus(unittest.TestCase):
         print(masg)
         self.assertEqual(masg,express_describe)
         time.sleep(2)
-#删除  -删除
-        driver.find_element_by_xpath('//*[@id="hisroot"]/div/div/section/div/div/div/section/main/div/div/div/div/div/div/div/div/div/div[2]/div/table/tbody/tr/td[3]/span/span[2]/a').click()
-        time.sleep(1)
-        #确定
-        driver.find_element_by_xpath('/html/body/div[3]/div/div/div/div[2]/div/div/div[2]/button[2]').click()
-        time.sleep(1)
-#删除断言  -查询
-        # 查询
-        driver.find_element_by_xpath(
-            '//*[@id="hisroot"]/div/div/section/div/div/div/section/main/div/div/form/div[1]/div/div/div[2]/div/span/input').clear()
-        driver.find_element_by_xpath(
-            '//*[@id="hisroot"]/div/div/section/div/div/div/section/main/div/div/form/div[1]/div/div/div[2]/div/span/input').send_keys(
-            express)
-        driver.find_element_by_xpath(
-            '//*[@id="hisroot"]/div/div/section/div/div/div/section/main/div/div/form/div[2]/div/button[1]').click()
-        time.sleep(2)
-        #
-        masg=driver.find_element_by_xpath('//*[@id="hisroot"]/div/div/section/div/div/div/section/main/div/div/div/div/div/div/div/div/div/div[2]/div[2]/div/p').text
-        print(masg)
-        self.assertEqual(masg,'暂无数据')
+# #删除  -删除
+#         driver.find_element_by_xpath('//*[@id="hisroot"]/div/div/section/div/div/div/section/main/div/div/div/div/div/div/div/div/div/div[2]/div/table/tbody/tr/td[3]/span/span[2]/a').click()
+#         time.sleep(1)
+#         #确定
+#         driver.find_element_by_xpath('/html/body/div[3]/div/div/div/div[2]/div/div/div[2]/button[2]').click()
+#         time.sleep(1)
+# #删除断言  -查询
+#         # 查询
+#         driver.find_element_by_xpath(
+#             '//*[@id="hisroot"]/div/div/section/div/div/div/section/main/div/div/form/div[1]/div/div/div[2]/div/span/input').clear()
+#         driver.find_element_by_xpath(
+#             '//*[@id="hisroot"]/div/div/section/div/div/div/section/main/div/div/form/div[1]/div/div/div[2]/div/span/input').send_keys(
+#             express)
+#         driver.find_element_by_xpath(
+#             '//*[@id="hisroot"]/div/div/section/div/div/div/section/main/div/div/form/div[2]/div/button[1]').click()
+#         time.sleep(2)
+#         #
+#         masg=driver.find_element_by_xpath('//*[@id="hisroot"]/div/div/section/div/div/div/section/main/div/div/div/div/div/div/div/div/div/div[2]/div[2]/div/p').text
+#         print(masg)
+#         self.assertEqual(masg,'暂无数据')
 
 
     def tearDown(self):

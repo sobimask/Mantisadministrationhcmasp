@@ -22,8 +22,6 @@ class test_a_order_manage_cancellation(unittest.TestCase):
         student_phone=study_service['cancellation']
         #新增学员姓名
         student_name=student_centre['name']
-        #班型选择
-        student_class=student_centre['class1']
         #应缴费用
         assessment=student_centre['assessment']
         #实缴费用

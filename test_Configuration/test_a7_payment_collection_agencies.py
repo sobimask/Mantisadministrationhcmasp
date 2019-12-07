@@ -50,6 +50,8 @@ class test_a_express_company(unittest.TestCase):
         self.assertEqual(masg,collection)
         time.sleep(2)
 
+    def tearDown(self) -> None:
+        self.driver.quit()
 
 
 if __name__ == "__main__":

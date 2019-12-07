@@ -40,6 +40,8 @@ class test_c_student_center_study(unittest.TestCase):
             '//*[@id="hisroot"]/div/div/section/div/div/div/section/main/div/div/div/section/section/main/section/main/div/div/div/div/div/div/div/div/div/table/tbody/tr/td[1]/a/div').click()
         time.sleep(2)
 # 学习记录
+
+
         driver.find_element_by_link_text('学习记录').click()
         time.sleep(2)
 # 断言  -验证学习记录页面可以显示

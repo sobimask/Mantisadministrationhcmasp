@@ -27,6 +27,7 @@ class test_a7_class_type_manage(unittest.TestCase):
         f = open('D:\\Mantisadministrationhcmasp\\configFile\\recorded_name.txt', 'r', encoding='utf-8')
         recorded_name = f.read()
         f.close()
+
         f = open('D:\\Mantisadministrationhcmasp\\configFile\\lubomokuai_name.txt', 'r', encoding='utf-8')
         lubomokuai_name = f.read()
         f.close()

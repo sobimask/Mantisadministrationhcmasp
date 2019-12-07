@@ -66,7 +66,7 @@ class test_b_student_center_texpressage(unittest.TestCase):
         time.sleep(1)
         #保存
         driver.find_element_by_xpath('/html/body/div[2]/div/div[2]/div/div[2]/div[3]/button[2]').click()
-        time.sleep(2)
+        time.sleep(4)
 #断言
         #学服中心
         driver.find_element_by_xpath("//span[contains(.,'学服中心')]").click()

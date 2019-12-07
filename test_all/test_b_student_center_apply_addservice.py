@@ -57,7 +57,7 @@ class test_b_student_center_apply_addservice(unittest.TestCase):
         time.sleep(1)
         driver.find_element_by_xpath('//*[@id="ownerOrgId"]/div/div/div[1]').click()
         driver.find_element_by_xpath('/html/body/div[6]/div/div/div/ul').find_element_by_class_name('ant-select-dropdown-menu-item').click()
-        time.sleep(1)
+        time.sleep(3)
         #抄送人
         driver.find_element_by_xpath('//*[@id="copyUserId"]/div/div').click()
         driver.find_element_by_xpath('/html/body/div[7]/div/div/div/ul').find_element_by_class_name('ant-select-dropdown-menu-item').click()

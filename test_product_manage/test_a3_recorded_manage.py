@@ -65,7 +65,7 @@ class test_a2_recorded_manage(unittest.TestCase):
         driver.find_element_by_xpath('/html/body/div[5]/div/div/div/ul').find_element_by_class_name('ant-select-dropdown-menu-item').click()
         #保存并配置
         driver.find_element_by_xpath("//button[contains(.,'保存并配置')]").click()
-        time.sleep(2)
+        time.sleep(3)
 
         #新增模块
         driver.find_element_by_xpath("//button[contains(.,'新增模块')]").click()
@@ -78,7 +78,7 @@ class test_a2_recorded_manage(unittest.TestCase):
         driver.find_element_by_link_text('添加课次').click()
         time.sleep(1)
         driver.find_element_by_xpath('//td[2]/div/input').send_keys(keci_name)
-        time.sleep(1)
+        time.sleep(2)
         #选择视频
         driver.find_element_by_xpath('//td[3]/div/div/div/div').click()
         time.sleep(1)

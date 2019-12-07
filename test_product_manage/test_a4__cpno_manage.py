@@ -123,6 +123,8 @@ class test_a4__cpno_manage(unittest.TestCase):
         #查询
         driver.find_element_by_xpath("//button[contains(.,'查 询')]").click()
         time.sleep(2)
+
+
 #断言
         cpno=driver.find_element_by_xpath('//*[@id="hisroot"]/div/div/section/div/div/div/section/main/div/section/main/div/div/div/div/div/div/div/div[2]/div/table/tbody/tr[1]/td[5]').text
         print(cpno)

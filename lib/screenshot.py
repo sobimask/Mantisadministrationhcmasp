@@ -1,7 +1,7 @@
 # coding:utf-8
-from selenium import webdriver
-driver = webdriver
-def get_screen():
+# from selenium import webdriver
+# driver = webdriver
+def get_screen(driver):
     '''截图'''
     import time
     nowTime = time.strftime("%Y_%m_%d_%H_%M_%S")

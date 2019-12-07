@@ -10,6 +10,7 @@ def addpayment(self,student_name, student_phone, assessment, paid):
     commodity_name = f.read()
     f.close()
 
+
     f = open('D:\\Mantisadministrationhcmasp\\configFile\\kaoqi.txt', 'r', encoding='utf-8')
     kaoqi = f.read()
     f.close()
@@ -60,7 +61,7 @@ def addpayment(self,student_name, student_phone, assessment, paid):
     time.sleep(9)
 
 #学员中心
-    driver.find_element_by_xpath('//*[@id="hisroot"]/div/div/section/aside/div/ul/li[15]/a').click()
+    driver.find_element_by_link_text("学员中心").click()
     time.sleep(4)
     #查询
     driver.find_element_by_id('searchMess').clear()

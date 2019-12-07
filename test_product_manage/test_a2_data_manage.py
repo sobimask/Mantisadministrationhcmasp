@@ -64,7 +64,7 @@ class test_a3_data_manage(unittest.TestCase):
         time.sleep(5)
         # 关闭上传弹窗
         driver.find_element_by_xpath("/html/body/div[4]/div/div[2]/div/div[2]/div[3]/button[2]").click()
-        time.sleep(5)
+        time.sleep(10)
         #查询
         driver.find_element_by_xpath('//*[@id="hisroot"]/div/div/section/div/div/div/section/main/div/section/header/form/div[1]/div[1]/div/div[2]/div/span/input').click()
         driver.find_element_by_xpath('//*[@id="hisroot"]/div/div/section/div/div/div/section/main/div/section/header/form/div[1]/div[1]/div/div[2]/div/span/input').send_keys(data_name)

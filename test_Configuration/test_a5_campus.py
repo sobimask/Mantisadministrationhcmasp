@@ -26,6 +26,7 @@ class test_a_campus(unittest.TestCase):
         f.close()
 
         driver = self.driver
+        time.sleep(2)
     #基础配置
         driver.find_element_by_xpath("//span[contains(.,'基础配置')]").click()
         time.sleep(1)
@@ -41,6 +42,7 @@ class test_a_campus(unittest.TestCase):
         driver.find_element_by_xpath('/html/body/div[2]/div/div[2]/div/div[2]/div[2]/form/div[2]/div/div/div[2]/div/span/div/div/div').click()
         time.sleep(1)
         driver.find_element_by_xpath('//li[text()="'+service_provider+'"]').click()
+        time.sleep(2)
         #保存
         driver.find_element_by_xpath('/html/body/div[2]/div/div[2]/div/div[2]/div[3]/button[2]').click()
         time.sleep(1)

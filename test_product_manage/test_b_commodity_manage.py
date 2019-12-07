@@ -18,7 +18,7 @@ class test_a8_commodity_manage(unittest.TestCase):
         u"""新建赠送商品"""
 
         #新增班型名称
-        commodity_name=product_manage['commodity_name']
+        commodity_name2=product_manage['commodity_name2']
         #商品最低价格
         commodity_minimum_price=product_manage['commodity_minimum_price']
         # 商品出售价格
@@ -26,7 +26,7 @@ class test_a8_commodity_manage(unittest.TestCase):
 
         #用于赠送商品班型
         with open('D:\\Mantisadministrationhcmasp\\configFile\\commodity_name2.txt', 'w', encoding='utf-8') as f:
-            f.write(commodity_name)
+            f.write(commodity_name2)
             f.close()
 
         f = open('D:\\Mantisadministrationhcmasp\\configFile\\name1.txt', 'r', encoding='utf-8')
@@ -54,7 +54,7 @@ class test_a8_commodity_manage(unittest.TestCase):
         time.sleep(1)
         driver.find_element_by_xpath('//div[4]/div/div/div/ul/li').click()
         #商品名称
-        driver.find_element_by_xpath("(//input[@id='name'])[2]").send_keys(commodity_name)
+        driver.find_element_by_xpath("(//input[@id='name'])[2]").send_keys(commodity_name2)
         time.sleep(1)
 
         #服务商
@@ -80,13 +80,13 @@ class test_a8_commodity_manage(unittest.TestCase):
         driver.find_element_by_link_text('商品管理').click()
         #查询
 
-        driver.find_element_by_id('name').send_keys(commodity_name)
+        driver.find_element_by_id('name').send_keys(commodity_name2)
         driver.find_element_by_xpath("//button[contains(.,'查 询')]").click()
         time.sleep(2)
     #断言
-        masg=driver.find_element_by_xpath('//div[2]/div[2]/div/div/table/tbody/tr/td[3]').text
+        masg=driver.find_element_by_xpath('//*[@id="hisroot"]/div/div/section/div/div/div/section/main/div/section/main/div/div/div/div/div/div/div[2]/div[1]/div/table/tbody/tr/td[3]').text
         print(masg)
-        self.assertEqual(masg,commodity_name)
+        self.assertEqual(masg,commodity_name2)
         time.sleep(2)
 
     def tearDown(self):
