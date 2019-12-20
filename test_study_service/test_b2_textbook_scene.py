@@ -30,7 +30,7 @@ class test_b_textbook_scene(unittest.TestCase):
         driver.find_element_by_id('customerInfo').click()
         driver.find_element_by_id('customerInfo').send_keys(student_phone)
         driver.find_element_by_xpath(
-            '//*[@id="hisroot"]/div/div/section/div/div/div/section/main/div/div/form/div/div[21]/button[1]').click()
+            "//button[contains(.,'查 询')]").click()
         time.sleep(2)
         #获取订单id
         id=driver.find_element_by_xpath('//*[@id="hisroot"]/div/div/section/div/div/div/section/main/div/div/div/div/div/div/div/div/div/div/div[1]/div/table/tbody/tr[1]/td[3]/span').text

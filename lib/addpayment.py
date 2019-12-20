@@ -15,6 +15,10 @@ def addpayment(self,student_name, student_phone, assessment, paid):
     kaoqi = f.read()
     f.close()
 
+    f = open('D:\\Mantisadministrationhcmasp\\configFile\\payment_way.txt', 'r', encoding='utf-8')
+    payment_way = f.read()
+    f.close()
+
     time.sleep(2)
     driver = self.driver
     # 新增学员
@@ -128,22 +132,21 @@ def addpayment(self,student_name, student_phone, assessment, paid):
     driver.find_element_by_xpath("//button[contains(.,'下一步')]").click()
     time.sleep(3)
  #支付信息
-    #费用类型
-    driver.find_element_by_xpath('/html/body/div[9]/div/div[2]/div/div[2]/div[2]/section/main/div/div/div/form/div[3]/div/div[1]/div/div[2]/div/span/div/div/div').click()
-    driver.find_element_by_xpath('/html/body/div[10]/div/div/div/ul').find_element_by_class_name('ant-select-dropdown-menu-item').click()
-    time.sleep(1)
+    #费用类型   16号修改支付信息页面新UI
+    driver.find_element_by_xpath('/html/body/div[9]/div/div[2]/div/div[2]/div[2]/section/main/div/div/div/form/div[3]/div/div[1]/div[1]/div/div[2]/div/span/div/div/div').click()
+    time.sleep(2)
+    driver.find_element_by_xpath("//li[contains(.,'定金费')]").click()
+    time.sleep(3)
     #支付方式
-    driver.find_element_by_xpath('/html/body/div[9]/div/div[2]/div/div[2]/div[2]/section/main/div/div/div/form/div[3]/div/div[2]/div/div[2]/div/span/div/div/div').click()
-    driver.find_element_by_xpath('/html/body/div[11]/div/div/div/ul').find_element_by_class_name('ant-select-dropdown-menu-item').click()
+    driver.find_element_by_xpath('/html/body/div[9]/div/div[2]/div/div[2]/div[2]/section/main/div/div/div/form/div[3]/div/div[1]/div[2]/div/div[2]/div/span/div/div/div').click()
+    time.sleep(2)
+    driver.find_element_by_xpath("//li[contains(.,'" + payment_way + "')]").click()
     time.sleep(1)
     #小票号
-    driver.find_element_by_xpath('/html/body/div[9]/div/div[2]/div/div[2]/div[2]/section/main/div/div/div/form/div[3]/div/div[3]/div/div[2]/div/span/input').click()
-    driver.find_element_by_xpath('/html/body/div[9]/div/div[2]/div/div[2]/div[2]/section/main/div/div/div/form/div[3]/div/div[3]/div/div[2]/div/span/input').send_keys(student_phone)
+    driver.find_element_by_xpath('/html/body/div[9]/div/div[2]/div/div[2]/div[2]/section/main/div/div/div/form/div[3]/div/div[3]/div[3]/div/div[2]/div/span/input').send_keys(student_phone)
     time.sleep(1)
     #支付金额
-
-    driver.find_element_by_xpath('/html/body/div[9]/div/div[2]/div/div[2]/div[2]/section/main/div/div/div/form/div[3]/div/div[5]/div/div[2]/div/span/div/div[2]/input').click()
-    driver.find_element_by_xpath('/html/body/div[9]/div/div[2]/div/div[2]/div[2]/section/main/div/div/div/form/div[3]/div/div[5]/div/div[2]/div/span/div/div[2]/input').send_keys(paid)
+    driver.find_element_by_xpath('/html/body/div[9]/div/div[2]/div/div[2]/div[2]/section/main/div/div/div/form/div[3]/div/div[3]/div[2]/div/div[2]/div/span/div/div[2]/input').send_keys(paid)
 
 
     try:

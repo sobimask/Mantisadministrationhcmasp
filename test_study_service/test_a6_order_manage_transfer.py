@@ -42,6 +42,10 @@ class test_a_order_manage_transfer(unittest.TestCase):
         kaoqi = f.read()
         f.close()
 
+        f = open('D:\\Mantisadministrationhcmasp\\configFile\\payment_way.txt', 'r', encoding='utf-8')
+        payment_way = f.read()
+        f.close()
+
         #d调取新增用户-报名
         addpayment(self, student_name, student_phone, assessment, paid)
         time.sleep(5)
@@ -56,7 +60,7 @@ class test_a_order_manage_transfer(unittest.TestCase):
         driver.find_element_by_id('customerInfo').click()
         driver.find_element_by_id('customerInfo').send_keys(student_phone)
         driver.find_element_by_xpath(
-            '//*[@id="hisroot"]/div/div/section/div/div/div/section/main/div/div/form/div/div[21]/button[1]').click()
+            "//button[contains(.,'查 询')]").click()
         time.sleep(2)
     # 进入子订单
         driver.find_element_by_xpath(
@@ -102,22 +106,32 @@ class test_a_order_manage_transfer(unittest.TestCase):
         #下一步
         driver.find_element_by_xpath("//button[contains(.,'下一步')]").click()
         time.sleep(2)
-        #支付信息
-        driver.find_element_by_xpath('/html/body/div[9]/div/div[2]/div/div[2]/div[2]/section/main/div/div/div/form/div[3]/div/div[1]/div/div[2]/div/span/div/div/div').click()
-        driver.find_element_by_xpath('/html/body/div[10]/div/div/div/ul').find_element_by_class_name('ant-select-dropdown-menu-item').click()
-        #支付方式
-        driver.find_element_by_xpath('/html/body/div[9]/div/div[2]/div/div[2]/div[2]/section/main/div/div/div/form/div[3]/div/div[2]/div/div[2]/div/span/div/div/div').click()
-        driver.find_element_by_xpath('/html/body/div[11]/div/div/div/ul').find_element_by_class_name('ant-select-dropdown-menu-item').click()
-        #小票号
-        driver.find_element_by_xpath('/html/body/div[9]/div/div[2]/div/div[2]/div[2]/section/main/div/div/div/form/div[3]/div/div[3]/div/div[2]/div/span/input').click()
-        driver.find_element_by_xpath('/html/body/div[9]/div/div[2]/div/div[2]/div[2]/section/main/div/div/div/form/div[3]/div/div[3]/div/div[2]/div/span/input').send_keys(fapiao)
-        #支付金额
-        driver.find_element_by_xpath('/html/body/div[9]/div/div[2]/div/div[2]/div[2]/section/main/div/div/div/form/div[3]/div/div[5]/div/div[2]/div/span/div/div[2]/input').click()
-        driver.find_element_by_xpath('/html/body/div[9]/div/div[2]/div/div[2]/div[2]/section/main/div/div/div/form/div[3]/div/div[5]/div/div[2]/div/span/div/div[2]/input').send_keys(paid2)
-        time.sleep(1)
-        #提交
-        driver.find_element_by_xpath('/html/body/div[9]/div/div[2]/div/div[2]/div[2]/section/main/div/div/div/div/button[2]').click()
+        #支付信息 新UI
+        driver.find_element_by_xpath(
+            '/html/body/div[9]/div/div[2]/div/div[2]/div[2]/section/main/div/div/div/form/div[3]/div/div[1]/div[1]/div/div[2]/div/span/div/div/div').click()
         time.sleep(2)
+        driver.find_element_by_xpath("//li[contains(.,'定金费')]").click()
+        time.sleep(3)
+        # 支付方式
+        driver.find_element_by_xpath(
+            '/html/body/div[9]/div/div[2]/div/div[2]/div[2]/section/main/div/div/div/form/div[3]/div/div[1]/div[2]/div/div[2]/div/span/div/div/div').click()
+        time.sleep(2)
+        driver.find_element_by_xpath("//li[contains(.,'" + payment_way + "')]").click()
+        time.sleep(1)
+        # 小票号
+        driver.find_element_by_xpath(
+            '/html/body/div[9]/div/div[2]/div/div[2]/div[2]/section/main/div/div/div/form/div[3]/div/div[3]/div[3]/div/div[2]/div/span/input').send_keys(
+            fapiao)
+        time.sleep(1)
+        # 支付金额
+        driver.find_element_by_xpath(
+            '/html/body/div[9]/div/div[2]/div/div[2]/div[2]/section/main/div/div/div/form/div[3]/div/div[3]/div[2]/div/div[2]/div/span/div/div[2]/input').send_keys(
+            paid2)
+        #提交
+        driver.find_element_by_xpath(
+            '/html/body/div[9]/div/div[2]/div/div[2]/div[2]/section/main/div/div/div/div/button[2]').click()
+        time.sleep(2)
+
         #断言
         #进入子订单
         driver.find_element_by_xpath(

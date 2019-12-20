@@ -18,6 +18,9 @@ class test_a_payment_way(unittest.TestCase):
 
         #新增支付方式
         payment_way=configuration['payment_way']
+        with open('D:\\Mantisadministrationhcmasp\\configFile\\payment_way.txt', 'w',encoding= 'utf-8') as f:
+            f.write(payment_way)
+            f.close()
 
         driver = self.driver
     #基础配置
@@ -67,7 +70,7 @@ class test_a_payment_way(unittest.TestCase):
 #修改断言
         masg=driver.find_element_by_xpath('//*[@id="hisroot"]/div/div/section/div/div/div/section/main/div/section/main/section/main/div/section/main/div/div/div/div/div/div/div/div[2]/div/table/tbody/tr/td[3]').text
         print(masg)
-        self.assertEquals(masg,'5%')
+        self.assertEqual(masg,'5%')
 
 
     def tearDown(self):

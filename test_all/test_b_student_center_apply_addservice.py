@@ -37,37 +37,50 @@ class test_b_student_center_apply_addservice(unittest.TestCase):
         driver.find_element_by_xpath(
             '//*[@id="hisroot"]/div/div/section/div/div/div/section/main/div/div/div/section/section/main/section/main/div/div/div/div/div/div/div/div/div/table/tbody/tr/td[1]/a/div').click()
         time.sleep(2)
-# 报名
+        # 报名
         driver.find_element_by_link_text('报名').click()
         time.sleep(2)
-#新增客服单
-        driver.find_element_by_xpath('//*[@id="reservation"]/div/div/ul/li/div[3]/div/div[1]/div/div[2]/div/button[1]').click()
-        time.sleep(2)
-        #客户单类型
-        driver.find_element_by_xpath('//*[@id="typeCode"]/div/div/div[1]').click()
-        driver.find_element_by_xpath('/html/body/div[3]/div/div/div/ul').find_element_by_class_name('ant-select-dropdown-menu-item').click()
+        #新增客服单
+        driver.find_element_by_xpath("//button[contains(.,'新增客服单')]").click()
+        time.sleep(1)
+        #客服单时间
+        driver.find_element_by_xpath("//span[@id='bizDate']/div/input").click()
+        time.sleep(1)
+        driver.find_element_by_xpath("//a[contains(text(),'今天')]").click()
+        time.sleep(1)
+        #客服单类型
+        driver.find_element_by_xpath("//div[@id='typeCode']/div/div").click()
+        time.sleep(1)
+        driver.find_element_by_xpath("//li[contains(.,'投诉')]").click()
         time.sleep(1)
         #紧急程度
-        driver.find_element_by_xpath('//*[@id="urgencyCode"]/div/div/div[1]').click()
-        driver.find_element_by_xpath('/html/body/div[4]/div/div/div/ul').find_element_by_class_name('ant-select-dropdown-menu-item').click()
-        #客服单时间
-        driver.find_element_by_xpath('//*[@id="bizDate"]/div/input').click()
-        driver.find_element_by_link_text('今天').click()
-        #负责机构
+        driver.find_element_by_xpath("//div[@id='urgencyCode']/div/div").click()
         time.sleep(1)
-        driver.find_element_by_xpath('//*[@id="ownerOrgId"]/div/div/div[1]').click()
-        driver.find_element_by_xpath('/html/body/div[6]/div/div/div/ul').find_element_by_class_name('ant-select-dropdown-menu-item').click()
-        time.sleep(3)
-        #抄送人
-        driver.find_element_by_xpath('//*[@id="copyUserId"]/div/div').click()
-        driver.find_element_by_xpath('/html/body/div[7]/div/div/div/ul').find_element_by_class_name('ant-select-dropdown-menu-item').click()
+        driver.find_element_by_xpath("//li[contains(.,'一般')]").click()
+        time.sleep(1)
         #客服单内容
-        driver.find_element_by_id('content').click()
-        driver.find_element_by_id('content').send_keys('新增客服单')
+        driver.find_element_by_id('content').send_keys('客服单内容')
+        time.sleep(1)
+        #负责机构
+        driver.find_element_by_xpath("//div[@id='ownerOrgId']/div/div").click()
+        time.sleep(1)
+        driver.find_element_by_xpath('//div[6]/div/div/div/ul/li').click()
+        time.sleep(1)
+        #抄送人
+        driver.find_element_by_xpath("//div[@id='copyUserId']/div/div").click()
+        time.sleep(1)
+        driver.find_element_by_xpath('//div[7]/div/div/div/ul/li').click()
+        time.sleep(1)
+        #123字段
+        driver.find_element_by_id('expandOne').send_keys('123')
+        time.sleep(1)
+        #234字段
+        driver.find_element_by_id('expandSix').send_keys('234')
         time.sleep(1)
         #保存
-        driver.find_element_by_xpath('/html/body/div[2]/div/div[2]/div/div[2]/div[3]/button[2]').click()
-#断言 检查客服单
+        driver.find_element_by_xpath("//button[contains(.,'保 存')]").click()
+        time.sleep(3)
+        #断言 检查客服单
         time.sleep(2)
         # 客服单
         driver.find_element_by_link_text('客服单').click()
@@ -76,14 +89,8 @@ class test_b_student_center_apply_addservice(unittest.TestCase):
         print(masg)
         self.assertIsNotNone(masg,' ')
 
-
-
-
     def tearDown(self):
-
         self.driver.quit()
-
-
 
 if __name__ == "__main__":
     unittest.main()

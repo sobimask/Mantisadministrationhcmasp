@@ -62,7 +62,7 @@ class test_b_student_center_tsence(unittest.TestCase):
         #查询
         driver.find_element_by_id('customerInfo').click()
         driver.find_element_by_id('customerInfo').send_keys(student_phone)
-        driver.find_element_by_xpath('//*[@id="hisroot"]/div/div/section/div/div/div/section/main/div/div/form/div/div[21]/button[1]').click()
+        driver.find_element_by_xpath("//button[contains(.,'查 询')]").click()
         time.sleep(1)
         id=driver.find_element_by_xpath('//*[@id="hisroot"]/div/div/section/div/div/div/section/main/div/div/div/div/div/div/div/div/div/div/div[1]/div/table/tbody/tr[1]/td[3]/span').text
         print(id)

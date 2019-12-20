@@ -4,7 +4,15 @@ from selenium import webdriver
 import datetime
 from lib.randomphone import randomphone
 #教务登录环境
-administration_url=""
+#n8环境   administration_url="https://cshj3140.n4.bjmantis.cn"
+#n7环境
+#administration_url='http://cshj5121.n7.bjmantis.cn'
+#gs环境
+#administration_url='https://mengxiang.n3.bjmantis.cn'
+#测试环境
+administration_url='https://hcqa.bjmantis.cn'
+#验证环境 administration_url= 'https://yzhgqa.bjmantis.net'
+
 
 #获取明日时间
 today = datetime.date.today()
@@ -15,9 +23,14 @@ time.sleep(2)
 
 
 #角色
-name='admin'
+#n8环境  name='admin'
+#n7环境  name = 'tl-admin'
+#gs环境  name = 'guan'
+#测试环境
+name = 'qizhaojun1'
+#验证环境 name = 'yj_guanliyuan'
 #密码
-password="qwer1234"
+password="qwer12341"
 #=====================================================================学员中心
 #学员中心报名信息
 student_centre={
@@ -35,7 +48,7 @@ student_centre={
      'name':'测试'+randomphone(),            #用户姓名
      'namem':'测试'+randomphone(),           #修改基本信息，学员名称
      'assessment':'100',     #报名应缴费用
-     'paid':'100',            #实缴费用
+     # 'paid':'100',            #实缴费用
      'site':'北京—酒仙桥—将台5号院-螳螂科技', #增加收货地址
      'invoice':'100',                           #发票金额
      'invoice_content':'单位发票'               #发票内容
@@ -75,7 +88,7 @@ configuration={
      'C_project':'测试报考项目',                  #报考项目--新增报考规则名称
      'express':'测试快递',                         # 快递公司--新增快递公司名称
      'express_describe':'测试快递描述',       # 快递公司--修改快递公司描述
-     'payment_way':'测试支付方式'+str(randomphone()),                      #支付配置--支付方式
+     'payment_way':'支付方式'+str(randomphone()),                      #支付配置--支付方式
      'cost_types':'支付类型'+str(randomphone()),                         #支付配置--支付类型
      'collection': '测试银行'+str(randomphone()),                    # 支付配置--收款机构
      'collection_remark': '测试银行'+randomphone(),            # 支付配置--收款机构-修改备注
@@ -103,7 +116,7 @@ teaching_operation={
            'commodity_infrom': '商品维度标题'+str(randomphone()),       # 学员通知-商品维度-通知标题
            'cpno_infrom': '学员维度标题'+str(randomphone()),       # 学员通知-商品维度-通知标题
 
-           'recorded_broadcast': '录播课号'+str(randomphone()),  # 课号管理——修改课次
+           # 'recorded_broadcast': '录播课号'+str(randomphone()),  # 课号管理——修改课次
 
 
 
@@ -135,6 +148,8 @@ product_manage={
     'mclass_type': '快速提升班'+str(randomphone()),  # 班型管理-修改版型名称
 
     'commodity_name': '商品'+str(randomphone()),  # 商品管理-新增班型名称
+    'commodity_name1': '商品'+str(randomphone()),
+    'commodity_name2': '商品'+str(randomphone()),
     'commodity_minimum_price': '1',  # 商品管理-上架商品最低价格
     'commodity_sell_price': '100',  # 商品管理-上架商品出售价格
     'mcommodity_name': '班型'+str(randomphone()),  #      商品管理-修改商品名称

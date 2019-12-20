@@ -22,6 +22,10 @@ class test_a_student_center_apply_transfer(unittest.TestCase):
         commodity_name1 = f.read()
         f.close()
 
+        f = open('D:\\Mantisadministrationhcmasp\\configFile\\payment_way.txt', 'r', encoding='utf-8')
+        payment_way = f.read()
+        f.close()
+
         #新增学员电话号码
         student_phone=student_centre['transfer']
         #新增学员姓名
@@ -90,20 +94,28 @@ class test_a_student_center_apply_transfer(unittest.TestCase):
         driver.find_element_by_xpath('/html/body/div[9]/div/div[2]/div/div[2]/div[2]/section/main/div/div/div/div[3]/button[2]').click()
         time.sleep(2)
     #支付信息
-        driver.find_element_by_xpath('/html/body/div[9]/div/div[2]/div/div[2]/div[2]/section/main/div/div/div/form/div[3]/div/div[1]/div/div[2]/div/span/div/div/div').click()
-        driver.find_element_by_xpath('/html/body/div[10]/div/div/div/ul').find_element_by_class_name('ant-select-dropdown-menu-item').click()
-        #支付方式
-        driver.find_element_by_xpath('/html/body/div[9]/div/div[2]/div/div[2]/div[2]/section/main/div/div/div/form/div[3]/div/div[2]/div/div[2]/div/span/div/div/div').click()
-        driver.find_element_by_xpath('/html/body/div[11]/div/div/div/ul').find_element_by_class_name('ant-select-dropdown-menu-item').click()
-        #小票号
-        driver.find_element_by_xpath('/html/body/div[9]/div/div[2]/div/div[2]/div[2]/section/main/div/div/div/form/div[3]/div/div[3]/div/div[2]/div/span/input').click()
-        driver.find_element_by_xpath('/html/body/div[9]/div/div[2]/div/div[2]/div[2]/section/main/div/div/div/form/div[3]/div/div[3]/div/div[2]/div/span/input').send_keys(student_phone)
-        #支付金额
+        # 费用类型   16号修改支付信息页面新UI
         driver.find_element_by_xpath(
-            '/html/body/div[9]/div/div[2]/div/div[2]/div[2]/section/main/div/div/div/form/div[3]/div/div[5]/div/div[2]/div/span/div/div[2]/input').click()
+            '/html/body/div[9]/div/div[2]/div/div[2]/div[2]/section/main/div/div/div/form/div[3]/div/div[1]/div[1]/div/div[2]/div/span/div/div/div').click()
+        time.sleep(2)
+        driver.find_element_by_xpath("//li[contains(.,'定金费')]").click()
+        time.sleep(3)
+        # 支付方式
         driver.find_element_by_xpath(
-            '/html/body/div[9]/div/div[2]/div/div[2]/div[2]/section/main/div/div/div/form/div[3]/div/div[5]/div/div[2]/div/span/div/div[2]/input').send_keys(
+            '/html/body/div[9]/div/div[2]/div/div[2]/div[2]/section/main/div/div/div/form/div[3]/div/div[1]/div[2]/div/div[2]/div/span/div/div/div').click()
+        time.sleep(2)
+        driver.find_element_by_xpath("//li[contains(.,'" + payment_way + "')]").click()
+        time.sleep(1)
+        # 小票号
+        driver.find_element_by_xpath(
+            '/html/body/div[9]/div/div[2]/div/div[2]/div[2]/section/main/div/div/div/form/div[3]/div/div[3]/div[3]/div/div[2]/div/span/input').send_keys(
+            student_phone)
+        time.sleep(1)
+        # 支付金额
+        driver.find_element_by_xpath(
+            '/html/body/div[9]/div/div[2]/div/div[2]/div[2]/section/main/div/div/div/form/div[3]/div/div[3]/div[2]/div/div[2]/div/span/div/div[2]/input').send_keys(
             paid2)
+
 
         try:
             #分期数
@@ -112,15 +124,11 @@ class test_a_student_center_apply_transfer(unittest.TestCase):
         except:
             pass
         finally:
-            # #支付金额
-            # driver.find_element_by_xpath('/html/body/div[9]/div/div[2]/div/div[2]/div[2]/section/main/div/div/div/form/div[3]/div/div[5]/div/div[2]/div/span/div/div[2]/input').click()
-            # driver.find_element_by_xpath('/html/body/div[9]/div/div[2]/div/div[2]/div[2]/section/main/div/div/div/form/div[3]/div/div[5]/div/div[2]/div/span/div/div[2]/input').send_keys(paid2)
-            # time.sleep(1)
             #提交
             driver.find_element_by_xpath('/html/body/div[9]/div/div[2]/div/div[2]/div[2]/section/main/div/div/div/div/button[2]').click()
             time.sleep(2)
     #断言
-            masg=driver.find_element_by_xpath('//*[@id="reservation"]/div/div/ul/li/div[3]/div/div[2]/div[2]/div[1]/div/div[1]/div/span[1]/div').text
+            masg=driver.find_element_by_xpath('//*[@id="reservation"]/div/div/ul/li/div[3]/div/div[2]/div[2]/div[1]/div/div[1]/div/span/span').text
             print(masg)
             self.assertIn(masg,'已转')
 

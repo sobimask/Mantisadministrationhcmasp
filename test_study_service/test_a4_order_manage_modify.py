@@ -42,13 +42,13 @@ class test_a_order_manage_modify(unittest.TestCase):
         driver.find_element_by_id('customerInfo').click()
         driver.find_element_by_id('customerInfo').send_keys(student_phone)
         driver.find_element_by_xpath(
-            '//*[@id="hisroot"]/div/div/section/div/div/div/section/main/div/div/form/div/div[21]/button[1]').click()
+            "//button[contains(.,'查 询')]").click()
         time.sleep(2)
         #修改支付详情
         driver.find_element_by_xpath('//*[@id="hisroot"]/div/div/section/div/div/div/section/main/div/div/div/div/div/div/div/div/div/div/div[3]/div/div/table/tbody/tr[1]/td/div/span[2]/a').click()
         time.sleep(1)
         #
-        driver.find_element_by_xpath('/html/body/div[9]/div/div[2]/div/div[2]/div[2]/div/div/div/div/div/div/div/div/table/tbody/tr/td[14]/span/span[1]/a').click()
+        driver.find_element_by_xpath('/html/body/div[9]/div/div[2]/div/div[2]/div[2]/div/div/div/div/div/div/div/div/table/tbody/tr/td[15]/span/span[1]/a').click()
         time.sleep(1)
         #修改备注
         driver.find_element_by_xpath('/html/body/div[10]/div/div[2]/div/div[2]/div[2]/form/div[8]/div/div/div[2]/div/span/textarea').clear()
